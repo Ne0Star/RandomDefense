@@ -70,10 +70,10 @@ MonoBehaviour:
   rotated: 0
   shotSFX:
   - {fileID: 1054573817}
-  attackDamage: 2
+  attackDamage: 1.75
   attackCount: 1
   attackSpeed: 0.06
-  reloadSpeed: 0.3
+  reloadSpeed: 0.35
 --- !u!1 &1054573816
 GameObject:
   m_ObjectHideFlags: 0
@@ -202,7 +202,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb0e7d6459ec4ce4e8742514e2faf305, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  triggerRadius: 0.4
+  triggerRadius: 0.5
   type: 0
 --- !u!1 &6266978447322266894
 GameObject:
