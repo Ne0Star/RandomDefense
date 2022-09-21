@@ -289,7 +289,7 @@ public abstract class Enemu : EntityUnit
         isDied = false;
     }
 
-    public virtual void EnemuUpdate(int currentWave)
+    public virtual void EnemuUpdate(int currentWave, float minHp, float maxHp)
     {
         if (startHealth == 0f) startHealth = Hit.GetMaxHealth();
         if (startStrength == 0f) startStrength = Hit.GetMaxStrength();
@@ -298,9 +298,12 @@ public abstract class Enemu : EntityUnit
         //costData.Component = Random.Range(0f, 0.1f);
         // Debug.Log("Подох ");
         //int multipler = ((int)LevelManager.Instance.LevelPresset.EnemuType + 2);
-
-        Hit.SetHealth(startHealth + Random.Range(0f, 1f));
-        Hit.SetStrength(startStrength + Random.Range(0f, 1f));
+        foreach(Turret t in turrets)
+        {
+            t.UpdateTurret();
+        }
+        Hit.SetHealth(startHealth + Random.Range(minHp, maxHp));
+        //;Hit.SetStrength(startStrength + Random.Range(minHp, maxHp));
         //dificityMultipler += (0.05f * currentWave);
     }
 
@@ -441,6 +444,10 @@ public abstract class Turret : EntityStatic
     [SerializeField] protected EntityUnit target;
     [SerializeField] protected List<EntityUnit> targets;
 
+    public void UpdateTurret()
+    {
+
+    }
     public EntityUnit Target { get => target; set => target = value; }
     public List<EntityUnit> Targets { get => targets; set => targets = value; }
     public bool WeaponMode { get => weaponMode; set => weaponMode = value; }

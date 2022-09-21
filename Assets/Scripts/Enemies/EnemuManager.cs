@@ -59,7 +59,7 @@ public class EnemuManager : MonoBehaviour
     public int CheckPositionTime => distanceCheckFrames; // Время проверки на дсиатнцию
 
 
-    public void SpawnIntellectually(int count, int currentWave, float maxHealth, Spawner spawner)
+    public void SpawnIntellectually(int count, int currentWave, float maxHealth, Spawner spawner, float minHp, float maxHp)
     {
         List<Enemu> variants = new List<Enemu>();
         for (int i = 0; i < enemuVariants.Count; i++)
@@ -87,7 +87,7 @@ public class EnemuManager : MonoBehaviour
                     result = (Enemu)variants[randomIndex].Spawn(spawner.transform.position, Quaternion.identity, spawner, null, () =>
                     {
                         if (result)
-                            result.EnemuUpdate(currentWave);
+                            result.EnemuUpdate(currentWave, minHp, maxHp);
                     });
                 }
             }

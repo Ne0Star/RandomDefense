@@ -119,12 +119,20 @@ public class WaveManager : MonoBehaviour
             fastBtn.interactable = true;
         }
     }
-    [SerializeField] private float goldToWave;
-    [SerializeField] private float componentToWave;
-    [SerializeField] private float maxHealthAdd;
+
+    [Header("Улучшение жизней врагов")]
+    [SerializeField] private float МинимальноеУлучшение;
+    [SerializeField] private float МаксимальноеУлучшение;
+    [Header("Награда за волну")]
+    [SerializeField] private float ЗолотоЗаВолну;
+    [SerializeField] private float ДеталиЗаВолну;
+    [Header("Потолок жизней")]
+    [SerializeField] private float МинимальноеУлучшение_;
+    [SerializeField] private float МаксмальноеУлучшение_;
+    [SerializeField] private float ТекущийПотолок = 100f;
+    [Header("Спавн враго, не обязательно трогать")]
     [SerializeField] private float spawnDuration;
     [SerializeField] private int timeToNext;
-    [SerializeField] private float maxEnemuHealth = 100f;
     private IEnumerator WaitWaveDuration()
     {
         //_fastText.text = LangsList.GetWord("startFast");
@@ -134,13 +142,13 @@ public class WaveManager : MonoBehaviour
         {
             UpdateVisual();
             Spawner spawner = groundSpawners[Random.Range(0, groundSpawners.Length)];
-            LevelManager.Instance.EnemuManager.SpawnIntellectually(Random.Range(5, Random.Range(5, Random.Range(0, currentWave / 8))), currentWave, maxEnemuHealth, spawner);
+            LevelManager.Instance.EnemuManager.SpawnIntellectually(Random.Range(5, Random.Range(5, Random.Range(0, currentWave / 8))), currentWave, ТекущийПотолок, spawner, МинимальноеУлучшение, МаксимальноеУлучшение);
             yield return new WaitForSeconds(spawnDuration);
             UpdateVisual();
         }
         spawnDuration += 0.01f;
         int temp = 0;
-        maxEnemuHealth += Random.Range(0, maxHealthAdd);
+        ТекущийПотолок += Random.Range(МинимальноеУлучшение_, МаксмальноеУлучшение_);
 
 
         while (temp < waveDuration)
@@ -157,8 +165,8 @@ public class WaveManager : MonoBehaviour
             timeToNext = (waveDuration - temp);
             UpdateVisual();
         }
-        LevelManager.Instance.ByuManager.GetBalance().Component += componentToWave;
-        LevelManager.Instance.ByuManager.GetBalance().Gold += goldToWave;
+        LevelManager.Instance.ByuManager.GetBalance().Component += ДеталиЗаВолну;
+        LevelManager.Instance.ByuManager.GetBalance().Gold += ЗолотоЗаВолну;
         //fastStart = false;
         //if (currentWave % 2 == 0)
         //    waveDuration += waveDurationUpdate;
