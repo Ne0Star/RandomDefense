@@ -164,7 +164,7 @@ public abstract class Entity : MonoBehaviour
 
     private void OnValidate()
     {
-        if(LevelManager.Instance)
+        if (LevelManager.Instance)
         {
             LevelManager.Instance.ByuManager.Roll();
         }
@@ -289,7 +289,7 @@ public abstract class Enemu : EntityUnit
         isDied = false;
     }
 
-    public virtual void EnemuUpdate(int currentWave, float minHp, float maxHp)
+    public virtual void EnemuUpdate(int currentWave, float minHp, float maxHp, float minDamage, float maxDamage)
     {
         if (startHealth == 0f) startHealth = Hit.GetMaxHealth();
         if (startStrength == 0f) startStrength = Hit.GetMaxStrength();
@@ -298,9 +298,9 @@ public abstract class Enemu : EntityUnit
         //costData.Component = Random.Range(0f, 0.1f);
         // Debug.Log("Подох ");
         //int multipler = ((int)LevelManager.Instance.LevelPresset.EnemuType + 2);
-        foreach(Turret t in turrets)
+        foreach (Turret t in turrets)
         {
-            t.UpdateTurret();
+            t.UpdateTurret(currentWave, minDamage, maxDamage);
         }
         Hit.SetHealth(startHealth + Random.Range(minHp, maxHp));
         //;Hit.SetStrength(startStrength + Random.Range(minHp, maxHp));
@@ -444,7 +444,7 @@ public abstract class Turret : EntityStatic
     [SerializeField] protected EntityUnit target;
     [SerializeField] protected List<EntityUnit> targets;
 
-    public void UpdateTurret()
+    public virtual void UpdateTurret(int currentWave, float minDamage, float maxDamage)
     {
 
     }

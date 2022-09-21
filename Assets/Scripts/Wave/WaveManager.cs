@@ -1,7 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
+using TMPro;
 using UnityEngine.UI;
 
 public class WaveManager : MonoBehaviour
@@ -120,16 +123,26 @@ public class WaveManager : MonoBehaviour
         }
     }
 
-    [Header("Улучшение жизней врагов")]
-    [SerializeField] private float МинимальноеУлучшение;
-    [SerializeField] private float МаксимальноеУлучшение;
+    [Header("Улучшение оружия врагов")]
+    [LabelOverride("Минимальное улучшение")]
+    [SerializeField] private float minDMGUpdate;
+    [LabelOverride("Максимальное улучшение")]
+    [SerializeField] private float maxDMGUpdate;
+    [Header("Улучшение жизней убитых врагов")]
+    [LabelOverride("Минимальное улучшение")]
+    [SerializeField] private float minHPUpdate;
+    [LabelOverride("Максимальное улучшение")]
+    [SerializeField] private float maxHPUpdate;
     [Header("Награда за волну")]
     [SerializeField] private float ЗолотоЗаВолну;
     [SerializeField] private float ДеталиЗаВолну;
     [Header("Потолок жизней")]
+    [LabelOverride("Минимальное улучшение")]
     [SerializeField] private float МинимальноеУлучшение_;
+    [LabelOverride("Максимальное улучшение")]
     [SerializeField] private float МаксмальноеУлучшение_;
     [SerializeField] private float ТекущийПотолок = 100f;
+    [SerializeField] private float ПотолокПотолка = 200f;
     [Header("Спавн враго, не обязательно трогать")]
     [SerializeField] private float spawnDuration;
     [SerializeField] private int timeToNext;
@@ -142,13 +155,13 @@ public class WaveManager : MonoBehaviour
         {
             UpdateVisual();
             Spawner spawner = groundSpawners[Random.Range(0, groundSpawners.Length)];
-            LevelManager.Instance.EnemuManager.SpawnIntellectually(Random.Range(5, Random.Range(5, Random.Range(0, currentWave / 8))), currentWave, ТекущийПотолок, spawner, МинимальноеУлучшение, МаксимальноеУлучшение);
+            LevelManager.Instance.EnemuManager.SpawnIntellectually(Random.Range(5, Random.Range(5, Random.Range(0, currentWave / 8))), currentWave, ТекущийПотолок, spawner, minHPUpdate,maxHPUpdate, minDMGUpdate, maxDMGUpdate);
             yield return new WaitForSeconds(spawnDuration);
             UpdateVisual();
         }
         spawnDuration += 0.01f;
         int temp = 0;
-        ТекущийПотолок += Random.Range(МинимальноеУлучшение_, МаксмальноеУлучшение_);
+        ТекущийПотолок += Mathf.Clamp(Random.Range(МинимальноеУлучшение_, МаксмальноеУлучшение_),0, ПотолокПотолка);
 
 
         while (temp < waveDuration)
@@ -172,4 +185,52 @@ public class WaveManager : MonoBehaviour
         //    waveDuration += waveDurationUpdate;
         StartInifinityWaves();
     }
+}
+ public class LabelOverride : PropertyAttribute
+{
+    public string label;
+    public LabelOverride(string label)
+    {
+        this.label = label;
+    }
+
+#if UNITY_EDITOR
+    [CustomPropertyDrawer(typeof(LabelOverride))]
+    public class ThisPropertyDrawer : PropertyDrawer
+    {
+        public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
+        {
+            try
+            {
+                var propertyAttribute = this.attribute as LabelOverride;
+                if (IsItBloodyArrayTho(property) == false)
+                {
+                    label.text = propertyAttribute.label;
+
+                }
+                else
+                {
+                    Debug.LogWarningFormat(
+                        "{0}(\"{1}\") doesn't support arrays ",
+                        typeof(LabelOverride).Name,
+                        propertyAttribute.label
+                    );
+                }
+                EditorGUI.PropertyField(position, property, label);
+            }
+            catch (System.Exception ex) { Debug.LogException(ex); }
+        }
+
+        bool IsItBloodyArrayTho(SerializedProperty property)
+        {
+            string path = property.propertyPath;
+            int idot = path.IndexOf('.');
+            if (idot == -1) return false;
+            string propName = path.Substring(0, idot);
+            SerializedProperty p = property.serializedObject.FindProperty(propName);
+            return p.isArray;
+            //CREDITS: https://answers.unity.com/questions/603882/serializedproperty-isnt-being-detected-as-an-array.html
+        }
+    }
+#endif
 }
