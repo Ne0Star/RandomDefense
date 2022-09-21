@@ -2585,14 +2585,14 @@ MonoBehaviour:
   blockFast: 0
   minDMGUpdate: 0.001
   maxDMGUpdate: 0.1
-  minHPUpdate: 0
-  maxHPUpdate: 2
+  minHPUpdate: 3
+  maxHPUpdate: 8
   "\u0417\u043E\u043B\u043E\u0442\u043E\u0417\u0430\u0412\u043E\u043B\u043D\u0443": 50
   "\u0414\u0435\u0442\u0430\u043B\u0438\u0417\u0430\u0412\u043E\u043B\u043D\u0443": 20
   "\u041C\u0438\u043D\u0438\u043C\u0430\u043B\u044C\u043D\u043E\u0435\u0423\u043B\u0443\u0447\u0448\u0435\u043D\u0438\u0435_": 0
   "\u041C\u0430\u043A\u0441\u043C\u0430\u043B\u044C\u043D\u043E\u0435\u0423\u043B\u0443\u0447\u0448\u0435\u043D\u0438\u0435_": 3
-  "\u0422\u0435\u043A\u0443\u0449\u0438\u0439\u041F\u043E\u0442\u043E\u043B\u043E\u043A": 20
-  "\u041F\u043E\u0442\u043E\u043B\u043E\u043A\u041F\u043E\u0442\u043E\u043B\u043A\u0430": 200
+  "\u0422\u0435\u043A\u0443\u0449\u0438\u0439\u041F\u043E\u0442\u043E\u043B\u043E\u043A": 28
+  "\u041F\u043E\u0442\u043E\u043B\u043E\u043A\u041F\u043E\u0442\u043E\u043B\u043A\u0430": 250
   spawnDuration: 0.1
   timeToNext: 0
 --- !u!1 &4976386510729999010
@@ -6114,6 +6114,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8971110546359747772, guid: b51128589664ead48a13f2020348c2fb,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8971110546384616008, guid: b51128589664ead48a13f2020348c2fb,
         type: 3}

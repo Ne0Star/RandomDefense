@@ -288,7 +288,7 @@ MonoBehaviour:
   attackDamage: 10
   attackCount: 1
   attackSpeed: 0.5
-  reloadSpeed: 1.35
+  reloadSpeed: 1.2
 --- !u!212 &7135602362494807196
 SpriteRenderer:
   m_ObjectHideFlags: 0
