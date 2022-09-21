@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1b7abe233ed33e4da2aa543c0cd25b9, type: 3}
+  m_Name: test
+  m_EditorClassIdentifier: 
+  chance: 20
+  minWave: 0
+  maxWave: 5
+  waveUnits:
+  - enemu: {fileID: 0}
+    spawnCount: 0
+    minCount: 0
+    maxCount: 0
+    spawnDelay: 0
+  - enemu: {fileID: 4847070651272173809, guid: 3cccf0de0cef826419d0e4b79e38f71b, type: 3}
+    spawnCount: 2
+    minCount: 0
+    maxCount: 1
+    spawnDelay: 0.1

@@ -1,0 +1,72 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1b7abe233ed33e4da2aa543c0cd25b9, type: 3}
+  m_Name: Wave
+  m_EditorClassIdentifier: 
+  chance: 20
+  minWave: 0
+  maxWave: 5
+  waveUnits:
+  - enemu: {fileID: 0}
+    minCount: 0
+    maxCount: 0
+    currentChance: 0
+    maxChance: 0
+    spawnDelay: 0
+  - enemu: {fileID: 1579478185470334280, guid: 61a36ed2c97a91b4c9ff78242b6afdfc, type: 3}
+    minCount: 2
+    maxCount: 6
+    currentChance: 80.1
+    maxChance: 80
+    spawnDelay: 0
+  - enemu: {fileID: 6266978447322266893, guid: eb2cb2a297887734cbdb2ccda384be0d, type: 3}
+    minCount: 2
+    maxCount: 6
+    currentChance: 60.1
+    maxChance: 60
+    spawnDelay: 0
+  - enemu: {fileID: 5086773689281491684, guid: 22049f8345ea5bc469d579358cbe0d47, type: 3}
+    minCount: 2
+    maxCount: 5
+    currentChance: 50.1
+    maxChance: 50
+    spawnDelay: 0
+  - enemu: {fileID: 7071988046085173049, guid: 147de64b6af1ca947b1e25efea5b011f, type: 3}
+    minCount: 0
+    maxCount: 4
+    currentChance: 35.1
+    maxChance: 35
+    spawnDelay: 0
+  - enemu: {fileID: 1236064286555762565, guid: ef7c0eb59f93a30429aa178b8922e294, type: 3}
+    minCount: 0
+    maxCount: 4
+    currentChance: 25.1
+    maxChance: 25
+    spawnDelay: 0
+  - enemu: {fileID: 957331149791175595, guid: f89587d542bb7c44ba45d5f8ba341b11, type: 3}
+    minCount: 0
+    maxCount: 3
+    currentChance: 15.1
+    maxChance: 15
+    spawnDelay: 0
+  - enemu: {fileID: 597521109120007128, guid: 85d961aed7dbfb447b727d3ffff0be8d, type: 3}
+    minCount: 0
+    maxCount: 2
+    currentChance: 10.1
+    maxChance: 10
+    spawnDelay: 0
+  - enemu: {fileID: 4847070651272173809, guid: 3cccf0de0cef826419d0e4b79e38f71b, type: 3}
+    minCount: 0
+    maxCount: 1
+    currentChance: 5.1
+    maxChance: 5
+    spawnDelay: 0
