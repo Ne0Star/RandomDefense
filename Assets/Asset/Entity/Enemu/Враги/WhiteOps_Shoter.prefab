@@ -491,22 +491,22 @@ PrefabInstance:
     - target: {fileID: 3649475756347492678, guid: f19abf003b05d26418735542512eda56,
         type: 3}
       propertyPath: health
-      value: 20
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 3649475756347492678, guid: f19abf003b05d26418735542512eda56,
         type: 3}
       propertyPath: strength
-      value: 20
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 3649475756347492678, guid: f19abf003b05d26418735542512eda56,
         type: 3}
       propertyPath: maxHealth
-      value: 20
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 3649475756347492678, guid: f19abf003b05d26418735542512eda56,
         type: 3}
       propertyPath: maxStrength
-      value: 20
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 3649475756347492678, guid: f19abf003b05d26418735542512eda56,
         type: 3}

@@ -119,6 +119,9 @@ public class WaveManager : MonoBehaviour
             fastBtn.interactable = true;
         }
     }
+    [SerializeField] private float goldToWave;
+    [SerializeField] private float componentToWave;
+    [SerializeField] private float maxHealthAdd;
     [SerializeField] private float spawnDuration;
     [SerializeField] private int timeToNext;
     [SerializeField] private float maxEnemuHealth = 100f;
@@ -137,7 +140,7 @@ public class WaveManager : MonoBehaviour
         }
         spawnDuration += 0.01f;
         int temp = 0;
-        maxEnemuHealth += Random.Range(0, 3f);
+        maxEnemuHealth += Random.Range(0, maxHealthAdd);
 
 
         while (temp < waveDuration)
@@ -154,8 +157,8 @@ public class WaveManager : MonoBehaviour
             timeToNext = (waveDuration - temp);
             UpdateVisual();
         }
-        LevelManager.Instance.ByuManager.GetBalance().Component += 15;
-        LevelManager.Instance.ByuManager.GetBalance().Gold += 50;
+        LevelManager.Instance.ByuManager.GetBalance().Component += componentToWave;
+        LevelManager.Instance.ByuManager.GetBalance().Gold += goldToWave;
         //fastStart = false;
         //if (currentWave % 2 == 0)
         //    waveDuration += waveDurationUpdate;
