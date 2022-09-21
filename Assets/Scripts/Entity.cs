@@ -162,7 +162,13 @@ public abstract class EntityUnit : Entity
 public abstract class Entity : MonoBehaviour
 {
 
-
+    private void OnValidate()
+    {
+        if(LevelManager.Instance)
+        {
+            LevelManager.Instance.ByuManager.Roll();
+        }
+    }
 
     #region Events
     [System.Serializable]

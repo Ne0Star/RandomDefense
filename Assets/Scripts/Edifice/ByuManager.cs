@@ -28,11 +28,16 @@ public class ByuManager : MonoBehaviour
     {
         if (refresh)
         {
+            Roll();
 
-            allRollWalls.Sort((x, y) => y.Prefab.CostData.Chance.CompareTo(x.Prefab.CostData.Chance));
             refresh = false;
         }
 
+    }
+
+    public void Roll()
+    {
+        allRollWalls.Sort((x, y) => y.Prefab.CostData.Chance.CompareTo(x.Prefab.CostData.Chance));
     }
 
     private void Awake()
