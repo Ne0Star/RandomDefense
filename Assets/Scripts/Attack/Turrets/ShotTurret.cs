@@ -15,7 +15,10 @@ public class ShotTurret : RotateTurret
     {
         StartCoroutine(Attack_Animation());
     }
-
+    public override void UpdateTurret(int currentWave, float minDamage, float maxDamage)
+    {
+        attackDamage += Random.Range(minDamage, maxDamage);
+    }
     private void OnDisable()
     {
         attack = false;
