@@ -168,8 +168,8 @@ namespace UnityEngine.Tilemaps
             {
                 Array.Copy(tile.m_AnimatedSprites, list.index + 1, tile.m_AnimatedSprites, list.index + 2, list.count - list.index - 1);
                 tile.m_AnimatedSprites[list.index + 1] = null;
-                if (list.IsSelected(list.index))
-                    list.index += 1;
+                //if (list.IsSelected(list.index))
+                //    list.index += 1;
             }
             else
             {

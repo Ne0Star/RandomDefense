@@ -369,8 +369,8 @@ namespace UnityEditor
             {
                 tile.m_TilingRules.Insert(list.index + 1, rule);
                 tile.m_TilingRules.RemoveAt(count + 1);
-                if (list.IsSelected(list.index))
-                    list.index += 1;
+                //if (list.IsSelected(list.index))
+                //    list.index += 1;
             }
             UpdateTilingRuleIds();
         }
@@ -389,14 +389,14 @@ namespace UnityEditor
             
             tile.m_TilingRules.Insert(list.index + 1, rule);
             tile.m_TilingRules.RemoveAt(count + 1);
-            if (list.IsSelected(list.index))
-                list.index += 1;
+            //if (list.IsSelected(list.index))
+            //    list.index += 1;
             UpdateTilingRuleIds();
         }
 
         private void OnAddDropdownElement(Rect rect, ReorderableList list)
         {
-            if (0 <= list.index && list.index < tile.m_TilingRules.Count && list.IsSelected(list.index))
+            if (0 <= list.index && list.index < tile.m_TilingRules.Count)
             {
                 GenericMenu menu = new GenericMenu();
                 menu.AddItem(EditorGUIUtility.TrTextContent("Add"), false, OnAddElement, list);
