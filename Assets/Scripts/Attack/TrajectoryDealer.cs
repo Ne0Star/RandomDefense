@@ -181,7 +181,7 @@ public class TrajectoryDealer : MonoBehaviour
                     Data td = tempData[i];
 
                     // check last data
-                    if (Vector2.Distance(m_Patrons[i].position, m_DynamicData[i].endPosition) <= dd.distanceToCompleted || !m_Patrons[i])
+                    if (Vector2.Distance(m_Patrons[i].position, m_DynamicData[i].endPosition) <= dd.distanceToCompleted || !(m_Patrons[i] || m_Patrons[i].gameObject.activeInHierarchy))
                     {
                         RemoveAllList(i, true);
                         CreateAllTemp();
@@ -195,37 +195,37 @@ public class TrajectoryDealer : MonoBehaviour
                     td.rotateOffset = dd.rotateOffset;
                     td.rotateToTarget = dd.rotateToTarget;
 
-                    //if (m_Targets[i] && m_Patrons[i])
-                    //{
-                    //    dd.endPosition = m_Targets[i].position;
-                    //}
-                    //if (!m_Targets[i] && m_Patrons[i])
-                    //{
-                    //    dd.endPosition = m_Patrons[i].position;
-                    //}
-
-                    if (Vector2.Distance(dd.endPosition, Vector3.zero) < 10f)
+                    if (m_Targets[i] && m_Patrons[i])
                     {
-                        if (m_Targets[i] && dd.pursue)
-                        {
-                            dd.endPosition = m_Targets[i].position;
-                        }
-                        else if (dd.endPosition == Vector3.zero && !dd.pursue && m_Targets[i])
-                        {
-                            dd.endPosition = m_Targets[i].position;
-                        }
-                        else
-                        {
-                            dd.endPosition = m_Patrons[i].position;
-                        }
-
-                    } else
-                    {
-                        if (m_Targets[i] && dd.pursue)
-                        {
-                            dd.endPosition = m_Targets[i].position;
-                        }
+                        dd.endPosition = m_Targets[i].position;
                     }
+                    if (!m_Targets[i] && m_Patrons[i])
+                    {
+                        dd.endPosition = m_Patrons[i].position;
+                    }
+
+                    //if (Vector2.Distance(dd.endPosition, Vector3.zero) < 10f)
+                    //{
+                    //    if (m_Targets[i] && dd.pursue)
+                    //    {
+                    //        dd.endPosition = m_Targets[i].position;
+                    //    }
+                    //    else if (dd.endPosition == Vector3.zero && !dd.pursue && m_Targets[i])
+                    //    {
+                    //        dd.endPosition = m_Targets[i].position;
+                    //    }
+                    //    else
+                    //    {
+                    //        dd.endPosition = m_Patrons[i].position;
+                    //    }
+
+                    //} else
+                    //{
+                    //    if (m_Targets[i] && dd.pursue)
+                    //    {
+                    //        dd.endPosition = m_Targets[i].position;
+                    //    }
+                    //}
 
                     td.endPosition = dd.endPosition;
                     td.offset = new Vector3(dd.missilesType.XOffset.Evaluate(dd.currentTime * dd.currentSpeed), dd.missilesType.YOffset.Evaluate(dd.currentTime * dd.currentSpeed), 0);

@@ -65,7 +65,6 @@ public class RocketTurret : ShellTurret
     [SerializeField] private MultiplerValue splashRadius;
 
     [SerializeField] private RocketSpawner[] rocketSpawners;
-    [SerializeField] private AttackEffect attackEffect;
     [SerializeField] private DynamicData rocketType;
 
     [SerializeField] private float attackDamage;
@@ -75,9 +74,13 @@ public class RocketTurret : ShellTurret
 
     protected override void OnAttack()
     {
+        if(gameObject.activeInHierarchy)
         StartCoroutine(Attack_Animation());
     }
-
+    public override void UpdateTurret(int currentWave, float minDamage, float maxDamage)
+    {
+        attackDamage += Random.Range(minDamage, maxDamage);
+    }
     private IEnumerator Attack_Animation()
     {
 
@@ -101,7 +104,7 @@ public class RocketTurret : ShellTurret
                     result.transform.position = spawner.transform.position;
                     result.gameObject.SetActive(true);
 
-
+                    if (!result) break;
                     CreateRocket(result);
                     spawner.vfxAttack.gameObject.SetActive(true);
                     yield return new WaitForSeconds((attackSpeed / LevelManager.Instance.GameSpeed) / 2f);
@@ -118,24 +121,32 @@ public class RocketTurret : ShellTurret
 
     private void OnDestroy()
     {
-        foreach (RocketSpawner spawner in rocketSpawners)
+        try
         {
-            if (spawner)
+            foreach (RocketSpawner spawner in rocketSpawners)
             {
-                Destroy(spawner.gameObject);
-            }
-        }
-        foreach (Patron patron in patrons)
-        {
-            if (patron)
-            {
-                if (patron.destroyParticle)
+                if (spawner)
                 {
-                    Destroy(patron.destroyParticle.gameObject);
+                    Destroy(spawner.gameObject);
                 }
-                Destroy(patron.gameObject);
+            }
+            foreach (Patron patron in patrons)
+            {
+                if (patron)
+                {
+                    if (patron.destroyParticle)
+                    {
+                        Destroy(patron.destroyParticle.gameObject);
+                    }
+                    Destroy(patron.gameObject);
+                }
             }
         }
+        catch
+        {
+
+        }
+
     }
 
     private void CreateRocket(Patron result)
@@ -151,6 +162,14 @@ public class RocketTurret : ShellTurret
                 }
         }
         DynamicData dt = rocketType;
+        if (!target)
+        {
+
+            if (result)
+                result.gameObject.SetActive(false);
+
+            return;
+        }
         dt = new DynamicData()
         {
             source = transform,
@@ -197,7 +216,7 @@ public class RocketTurret : ShellTurret
         patron.destroyParticle.SetActive(true);
         if (splashRadius.GetCurrentValue() != 0)
         {
-            GameUtils.DealSplashDamage(patron.transform.position, LevelManager.Instance.EnemuManager.GetAllEnemies().ToArray(), splashRadius.GetCurrentValue(), attackDamage);
+            GameUtils.DealSplashDamage(patron.transform.position, mainTrigger.GetAllEntities(), splashRadius.GetCurrentValue(), attackDamage);
         }
         else
         {

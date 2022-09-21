@@ -152,6 +152,10 @@ MonoBehaviour:
     energy: 30
     component: 30
     chance: 70
+  effects:
+    effect: 0
+    power: 0
+    duration: 0
   radius: {fileID: 1322724257590062140}
   weaponMode: 0
   target: {fileID: 0}
@@ -174,10 +178,6 @@ MonoBehaviour:
     maxMultipler: 1
   rocketSpawners:
   - {fileID: 2750244454559870367}
-  attackEffect:
-    effect: 0
-    power: 0
-    duration: 0
   rocketType:
     source: {fileID: 7772607470307398754}
     missilesType:
@@ -287,7 +287,7 @@ MonoBehaviour:
     rotateToTarget: 1
   attackDamage: 10
   attackCount: 1
-  attackSpeed: 0.5
+  attackSpeed: 1
   reloadSpeed: 1.2
 --- !u!212 &7135602362494807196
 SpriteRenderer:

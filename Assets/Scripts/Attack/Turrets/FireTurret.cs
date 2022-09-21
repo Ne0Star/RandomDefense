@@ -39,7 +39,7 @@ public class FireTurret : RotateTurret
             yield return new WaitForSeconds(attackSpeed / LevelManager.Instance.GameSpeed);
             if (targets != null)
             {
-                GameUtils.DealSplashDamage(transform.position, targets.ToArray(), mainTrigger.TriggerRadius, damage.GetCurrentValue());
+                GameUtils.DealSplashDamage(transform.position, targets.ToArray(), mainTrigger.TriggerRadius, damage.GetCurrentValue(), effects);
             }
         }
         if (!wait)

@@ -153,6 +153,10 @@ MonoBehaviour:
     energy: 120
     component: 70
     chance: 50
+  effects:
+    effect: 0
+    power: 0
+    duration: 0
   radius: {fileID: 6440879260809763718}
   weaponMode: 0
   target: {fileID: 0}
@@ -176,10 +180,6 @@ MonoBehaviour:
   rocketSpawners:
   - {fileID: 1911643092038595656}
   - {fileID: 1852377593557806108}
-  attackEffect:
-    effect: 0
-    power: 0
-    duration: 0
   rocketType:
     source: {fileID: 2370021965021176792}
     missilesType:

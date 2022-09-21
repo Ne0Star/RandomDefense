@@ -155,7 +155,7 @@ public class WaveManager : MonoBehaviour
         {
             UpdateVisual();
             Spawner spawner = groundSpawners[Random.Range(0, groundSpawners.Length)];
-            LevelManager.Instance.EnemuManager.SpawnIntellectually(Random.Range(5, Random.Range(5, Random.Range(0, currentWave / 8))), currentWave, ТекущийПотолок, spawner, minHPUpdate,maxHPUpdate, minDMGUpdate, maxDMGUpdate);
+            StartCoroutine(LevelManager.Instance.EnemuManager.SpawnIntellectually(Random.Range(5, Random.Range(5, Random.Range(0, currentWave / 8))), currentWave, ТекущийПотолок, spawner, minHPUpdate,maxHPUpdate, minDMGUpdate, maxDMGUpdate));
             yield return new WaitForSeconds(spawnDuration);
             UpdateVisual();
         }

@@ -33,7 +33,15 @@ public class RotateTurret : Turret
 
     public override void Tick()
     {
-        if (attack) return;
+
+        if (attack) {
+            if (rotate && target && target.gameObject.activeInHierarchy)
+                rotateParent.DORotateQuaternion(GameUtils.LookAt2DValue(rotateParent, target.transform, rotateOffset), rotateSpeed / LevelManager.Instance.GameSpeed).OnKill(() =>
+                {
+
+                });
+return;
+        } 
 
         /// Нету цели
         if (mainTrigger && (!target || !target.gameObject.activeInHierarchy))
@@ -42,8 +50,8 @@ public class RotateTurret : Turret
             target = mainTrigger.GetOneNear(false);
         if (mainTrigger && (!target || !target.gameObject.activeInHierarchy))
             target = mainTrigger.GetOneRandom();
-            // Цель есть
-            if (target != null && target.gameObject.activeInHierarchy)
+        // Цель есть
+        if (target != null && target.gameObject.activeInHierarchy)
         {
             // Если она не в диапазоне, сломать
             if (mainTrigger && !mainTrigger.CheckRadius(target))
@@ -61,10 +69,7 @@ public class RotateTurret : Turret
                         Check();
                     });
                 else
-                {
-                    Check();
-                }
-
+                Check();
             }
         }
     }

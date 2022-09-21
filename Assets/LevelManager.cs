@@ -304,8 +304,8 @@ public class LevelManager : OneSingleton<LevelManager>
         //gameSpeed = 0f;
         Time.timeScale = 0f;
         //onGameSpeed?.Invoke(gameSpeed);
-        if(t_gameSpeed)
-        t_gameSpeed.text = "0";
+        if (t_gameSpeed)
+            t_gameSpeed.text = "0";
     }
 
     public void ChangeSpeed()
@@ -624,6 +624,32 @@ public static class GameUtils
                     float percent = Mathf.InverseLerp(splashRadius, 0, distance);
                     es[i].TakeDamage(splashDamage * percent, 0.2f, center);
                 }
+            }
+        }
+    }
+    /// <summary>
+    /// Если передаётся эффект, то его сила будет снижена
+    /// </summary>
+    /// <param name="center"></param>
+    /// <param name="es"></param>
+    /// <param name="splashRadius"></param>
+    /// <param name="splashDamage"></param>
+    /// <param name="attackEffect"></param>
+    public static void DealSplashDamage(Vector3 center, EntityUnit[] es, float splashRadius, float splashDamage, AttackEffect attackEffect)
+    {
+        for (int i = 0; i < es.Length; i++)
+        {
+            if (es[i])
+            {
+
+                float distance = Vector3.Distance(center, es[i].transform.position);
+                //if (distance <= splashRadius)
+                //{
+                float percent = Mathf.InverseLerp(splashRadius, 0, distance);
+                AttackEffect ef = new AttackEffect(attackEffect.CurrentEffect, attackEffect.Power * percent);
+                es[i].TakeEffect(ef);
+                es[i].TakeDamage(splashDamage * percent, 0.2f, center);
+                //}
             }
         }
     }

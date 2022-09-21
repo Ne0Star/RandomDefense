@@ -1,10 +1,11 @@
 using System.Collections.Generic;
+using System.Collections;
+using UnityEngine;
 using System.Linq;
 using Unity.Burst;
 using Unity.Collections;
 using Unity.Jobs;
 using Unity.Mathematics;
-using UnityEngine;
 using UnityEngine.Jobs;
 using Random = UnityEngine.Random;
 
@@ -59,7 +60,7 @@ public class EnemuManager : MonoBehaviour
     public int CheckPositionTime => distanceCheckFrames; // Время проверки на дсиатнцию
 
 
-    public void SpawnIntellectually(int count, int currentWave, float maxHealth, Spawner spawner, float minHp, float maxHp, float minDmg, float maxDmg)
+    public IEnumerator SpawnIntellectually(int count, int currentWave, float maxHealth, Spawner spawner, float minHp, float maxHp, float minDmg, float maxDmg)
     {
         List<Enemu> variants = new List<Enemu>();
         for (int i = 0; i < enemuVariants.Count; i++)
@@ -90,9 +91,10 @@ public class EnemuManager : MonoBehaviour
                             result.EnemuUpdate(currentWave, minHp, maxHp, minDmg, maxDmg);
                     });
                 }
+                yield return new WaitForSeconds(0.005f);
             }
         }
-
+        yield break;
     }
 
     public Enemu SpawnEnemu<T>(Vector3 position, Spawner spawner)

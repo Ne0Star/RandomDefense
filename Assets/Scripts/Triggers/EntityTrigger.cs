@@ -9,7 +9,7 @@ public abstract class Trigger : MonoBehaviour
     public float TriggerRadius { get => triggerRadius; set => triggerRadius = value; }
     public void SetRange(float range) => triggerRadius = range;
 
-    protected EntityUnit[] GetAllEntities()
+    public EntityUnit[] GetAllEntities()
     {
         EntityUnit[] result = null;
         switch (type)

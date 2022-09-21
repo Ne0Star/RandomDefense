@@ -18,6 +18,17 @@ public class AttackEffect
     [SerializeField] private float power;
     [SerializeField] private float duration;
 
+    public AttackEffect(Effect effect, float power, float duration)
+    {
+        this.effect = effect;
+        this.power = power;
+        this.duration = duration;
+    }
+    public AttackEffect(Effect effect, float power)
+    {
+        this.effect = effect;
+        this.power = power;
+    }
     public Effect CurrentEffect { get => effect; }
     public float Power { get => power; }
     public float Duration { get => duration; }
@@ -412,6 +423,19 @@ public abstract class Enemu : EntityUnit
     //    agent.obstacleAvoidanceType = ObstacleAvoidanceType.NoObstacleAvoidance;
     //}
 
+    public override void TakeEffect(AttackEffect effect)
+    {
+        switch (effect.CurrentEffect)
+        {
+            case AttackEffect.Effect.None:
+                return;
+            case AttackEffect.Effect.Freze:
+                speed.Multipler -= effect.Power;
+                break;
+        }
+
+    }
+
     public override Entity Spawn(Vector3 spawnPosition, Quaternion spawnRotation, Spawner spawner, Transform spawnParent, System.Action cansel)
     {
         CurrentSpawner = spawner;// LevelManager.Instance.WaveManager.GroundSpawners[Random.Range(0, LevelManager.Instance.WaveManager.GroundSpawners.Length)];
@@ -439,6 +463,7 @@ public abstract class Enemu : EntityUnit
 // Перед выпуском вынести всё общее между ними сюда, и добавить вращение
 public abstract class Turret : EntityStatic
 {
+    [SerializeField] protected AttackEffect effects;
     [SerializeField] protected TurretRadius radius;
     [SerializeField] protected bool weaponMode = false;
     [SerializeField] protected EntityUnit target;

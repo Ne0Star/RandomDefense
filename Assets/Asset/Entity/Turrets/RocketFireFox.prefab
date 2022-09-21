@@ -235,6 +235,10 @@ MonoBehaviour:
     energy: 300
     component: 200
     chance: 18
+  effects:
+    effect: 0
+    power: 0
+    duration: 0
   radius: {fileID: 2733778675686450089}
   weaponMode: 0
   target: {fileID: 0}
