@@ -56,6 +56,7 @@ public class ByuManager : MonoBehaviour
     private void Start()
     {
         tapeBuilding.SetContents(allBuildings);
+        Roll();
         //tapeBuilding.RefreshAll();
     }
 }
