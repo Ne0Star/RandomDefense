@@ -205,7 +205,7 @@ MonoBehaviour:
   shotSFX:
   - {fileID: 6993626821118352355}
   - {fileID: 6993626820228905932}
-  attackDamage: 10
+  attackDamage: 7
   attackCount: 2
   attackSpeed: 0.06
   reloadSpeed: 0.2
