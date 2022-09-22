@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb0e7d6459ec4ce4e8742514e2faf305, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  triggerRadius: 2
+  triggerRadius: 12
   type: 1
 --- !u!1 &4821575773720038215
 GameObject:
@@ -227,7 +227,7 @@ GameObject:
   - component: {fileID: 5881814989220558996}
   - component: {fileID: 1892196206650104409}
   m_Layer: 0
-  m_Name: "\u0440\u0435\u043B\u044C\u0441\u044B\u0448\u043F\u0430\u043B\u044B\u043A\u0438\u0440\u043F\u0438\u0447\u0438."
+  m_Name: "\u0440\u0435\u043B\u044C\u0441\u044B\u0448\u043F\u0430\u043B\u044B\u043A\u0438\u0440\u043F\u0438\u0447\u0438.."
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -291,10 +291,10 @@ MonoBehaviour:
   rotated: 0
   shotSFX:
   - {fileID: 5881814989067061219}
-  attackDamage: 7
+  attackDamage: 50
   attackCount: 2
-  attackSpeed: 0.06
-  reloadSpeed: 0.2
+  attackSpeed: 0.4
+  reloadSpeed: 3
 --- !u!1001 &8107462578775632487
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -330,12 +330,12 @@ PrefabInstance:
     - target: {fileID: 7007541727684015774, guid: c22ceccf5cc5f8a44ab8dfe70325ed64,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 2
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 7007541727684015774, guid: c22ceccf5cc5f8a44ab8dfe70325ed64,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 2
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 7007541727684015774, guid: c22ceccf5cc5f8a44ab8dfe70325ed64,
         type: 3}
