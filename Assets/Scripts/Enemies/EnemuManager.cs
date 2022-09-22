@@ -184,19 +184,12 @@ public class EnemuManager : MonoBehaviour
 
                     int max = dynamicDatas[i].enemu.CurrentSpawner.GetPath().Length;
                     //dynamicDatas[i].enemu.SetDistionation
-                    md.RotateSpeed = dynamicDatas[i].enemu.RotateSpeed * (LevelManager.Instance.GameSpeed / 2);
+                    md.RotateSpeed = dynamicDatas[i].enemu.RotateSpeed / LevelManager.Instance.GameSpeed;
                     bool chance = Random.Range(0, 100) < 5;
                     md.RotateOffset = chance ? dynamicDatas[i].enemu.RotateOffset + Random.Range(-10, 10) : dynamicDatas[i].enemu.RotateOffset;
                     md.noWaitRotate = false;
                     md.blockJobMove = dynamicDatas[i].enemu.blockJobMove;
 
-                    if (Vector2.Distance(md.lastPosition, dynamicDatas[i].enemu.transform.position) < (md.Speed * 0.01f))
-                    {
-                        if (!dynamicDatas[i].enemu.target)
-                            dynamicDatas[i].enemu.PositionIndex++;
-                    }
-
-                    md.lastPosition = dynamicDatas[i].enemu.transform.position;
                     if (dynamicDatas[i].enemu.target && dynamicDatas[i].enemu.target.gameObject.activeInHierarchy)
                     {
                         md.targetPosition = dynamicDatas[i].enemu.target.transform.position;
@@ -215,12 +208,13 @@ public class EnemuManager : MonoBehaviour
                     md.Speed = speed;
                     if (md.currentFramesCount >= md.maxFramesCountToSaveLastDistance)
                     {
-                        // Сущность не двигается
+                        // ???????? ?? ?????????
                         if (math.distance(dynamicDatas[i].enemu.transform.position, md.lastPosition) < (md.Speed * 0.0001f) && dynamicDatas[i].enemu.PositionIndex < max)// (md.Speed * 0.0001f))
                         {
-                            //bug = true;
-                            //md.noWaitRotate = true;
-                            //nextPosition = dynamicDatas[i].enemu.CurrentSpawner.GetPath()[Mathf.Clamp(dynamicDatas[i].enemu.PositionIndex, 0, dynamicDatas[i].enemu.CurrentSpawner.GetPath().Length - 1)];
+                            dynamicDatas[i].enemu.Agent.avoidancePriority--;
+                            bug = true;
+                            md.noWaitRotate = true;
+                            nextPosition = dynamicDatas[i].enemu.CurrentSpawner.GetPath()[Mathf.Clamp(dynamicDatas[i].enemu.PositionIndex, 0, dynamicDatas[i].enemu.CurrentSpawner.GetPath().Length - 1)];
                         }
                         md.lastPosition = dynamicDatas[i].enemu.transform.position;
                         md.currentFramesCount = 0;

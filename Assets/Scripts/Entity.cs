@@ -269,6 +269,7 @@ public struct MultiplerValue
 [RequireComponent(typeof(NavMeshAgent))]
 public abstract class Enemu : EntityUnit
 {
+    private int defaultPriority;
     [SerializeField] protected Turret[] turrets;
     //[SerializeField] private float dificityMultipler;
     //[SerializeField] private CostData reachCost;
@@ -286,6 +287,7 @@ public abstract class Enemu : EntityUnit
 
     private void OnDisable()
     {
+        agent.avoidancePriority = defaultPriority;
         isDied = true;
         target = null;
         attack = false;
@@ -294,6 +296,7 @@ public abstract class Enemu : EntityUnit
     }
     private void OnEnable()
     {
+        defaultPriority = agent.avoidancePriority;
         if (mainTrigger)
             mainTrigger.enabled = true;
         Hit.SetFull();
