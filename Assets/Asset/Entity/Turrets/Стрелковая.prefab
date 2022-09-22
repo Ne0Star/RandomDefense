@@ -151,7 +151,7 @@ MonoBehaviour:
   target: {fileID: 0}
   targets: []
   rotate: 1
-  rotateParent: {fileID: 6560438842819755706}
+  rotateParent: {fileID: 0}
   mainTrigger: {fileID: 3685046306052878153}
   attack: 0
   rotateOffset: 90

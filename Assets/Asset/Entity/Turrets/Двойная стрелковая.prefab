@@ -236,7 +236,7 @@ MonoBehaviour:
   target: {fileID: 0}
   targets: []
   rotate: 1
-  rotateParent: {fileID: 8437795375236608313}
+  rotateParent: {fileID: 0}
   mainTrigger: {fileID: 2103643340653125834}
   attack: 0
   rotateOffset: 90
@@ -484,7 +484,7 @@ MonoBehaviour:
   target: {fileID: 0}
   targets: []
   rotate: 1
-  rotateParent: {fileID: 8437795374679450352}
+  rotateParent: {fileID: 0}
   mainTrigger: {fileID: 2103643341142127363}
   attack: 0
   rotateOffset: 90
