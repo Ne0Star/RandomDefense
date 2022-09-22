@@ -218,9 +218,9 @@ public class EnemuManager : MonoBehaviour
                         // Сущность не двигается
                         if (math.distance(dynamicDatas[i].enemu.transform.position, md.lastPosition) < (md.Speed * 0.0001f) && dynamicDatas[i].enemu.PositionIndex < max)// (md.Speed * 0.0001f))
                         {
-                            bug = true;
-                            md.noWaitRotate = true;
-                            nextPosition = dynamicDatas[i].enemu.CurrentSpawner.GetPath()[Mathf.Clamp(dynamicDatas[i].enemu.PositionIndex, 0, dynamicDatas[i].enemu.CurrentSpawner.GetPath().Length - 1)];
+                            //bug = true;
+                            //md.noWaitRotate = true;
+                            //nextPosition = dynamicDatas[i].enemu.CurrentSpawner.GetPath()[Mathf.Clamp(dynamicDatas[i].enemu.PositionIndex, 0, dynamicDatas[i].enemu.CurrentSpawner.GetPath().Length - 1)];
                         }
                         md.lastPosition = dynamicDatas[i].enemu.transform.position;
                         md.currentFramesCount = 0;
