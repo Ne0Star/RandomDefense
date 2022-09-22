@@ -160,10 +160,10 @@ MonoBehaviour:
   shotSFX:
   - {fileID: 3231986263552231379}
   - {fileID: 8793680086400405263}
-  attackDamage: 7
-  attackCount: 2
-  attackSpeed: 0.06
-  reloadSpeed: 0.2
+  attackDamage: 2.7
+  attackCount: 3
+  attackSpeed: 0.03
+  reloadSpeed: 0.15
 --- !u!1 &4273095420314571889
 GameObject:
   m_ObjectHideFlags: 0

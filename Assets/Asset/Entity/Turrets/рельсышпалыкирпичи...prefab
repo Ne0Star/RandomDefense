@@ -291,8 +291,8 @@ MonoBehaviour:
   rotated: 0
   shotSFX:
   - {fileID: 5881814989067061219}
-  attackDamage: 50
-  attackCount: 2
+  attackDamage: 75
+  attackCount: 1
   attackSpeed: 0.4
   reloadSpeed: 3
 --- !u!1001 &8107462578775632487
