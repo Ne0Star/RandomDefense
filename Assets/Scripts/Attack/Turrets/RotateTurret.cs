@@ -11,6 +11,8 @@ public class RotateTurret : Turret
     [SerializeField] protected float rotateSpeed;
     [SerializeField] protected bool rotated;
 
+    public bool Rotated { get => rotated; }
+
     private void Awake()
     {
         if (!rotateParent) rotateParent = transform;
@@ -18,12 +20,14 @@ public class RotateTurret : Turret
 
     public override void HideRadius()
     {
+        if(radius)
         radius.Close();
     }
 
     public override void ShowRadius()
     {
-        radius.Open(mainTrigger.TriggerRadius);
+        if(radius)
+        radius.Open();
     }
 
     public override float GetTarretRadius()

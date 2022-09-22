@@ -464,7 +464,7 @@ public abstract class Enemu : EntityUnit
 public abstract class Turret : EntityStatic
 {
     [SerializeField] protected AttackEffect effects;
-    [SerializeField] protected TurretRadius radius;
+    [SerializeField] protected TR radius;
     [SerializeField] protected bool weaponMode = false;
     [SerializeField] protected EntityUnit target;
     [SerializeField] protected List<EntityUnit> targets;
