@@ -171,13 +171,12 @@ public class EnemuManager : MonoBehaviour
         if (activeEnemies.Count > 0)
         {
 
-            //enemuToFrame = dynamicDatas.Count == 0 ? 0 : Mathf.Clamp(Mathf.RoundToInt(dynamicDatas.Count / 100f * (enemuToFramePersent * LevelManager.Instance.GameSpeed)), 1, 100) + 5;
+            enemuToFrame = dynamicDatas.Count == 0 ? 0 : Mathf.Clamp(Mathf.RoundToInt(dynamicDatas.Count / 100f * (enemuToFramePersent * LevelManager.Instance.GameSpeed)), 1, 100) + 5;
 
-            //int t = enemuLast;
-            //int r = Mathf.Clamp(t + enemuToFrame, 0, dynamicDatas.Count);
-            for (int i = 0; i < dynamicDatas.Count; i++)
-                //for (int i = t; i < r; i++)
-                //{
+            int t = enemuLast;
+            int r = Mathf.Clamp(t + enemuToFrame, 0, dynamicDatas.Count);
+            for (int i = t; i < r; i++)
+            {
 
                 if (dynamicDatas[i] != null && dynamicDatas[i].enemu.gameObject.activeInHierarchy)
                 {
@@ -248,13 +247,13 @@ public class EnemuManager : MonoBehaviour
                     moveDatas[i] = md;
                     dynamicDatas[i].enemu.Tick();
                 }
-            //    t++;
-            //}
-            //enemuLast = t;
-            //if (enemuLast >= dynamicDatas.Count)
-            //{
-            //    enemuLast = 0;
-            //}
+                t++;
+            }
+            enemuLast = t;
+            if (enemuLast >= dynamicDatas.Count)
+            {
+                enemuLast = 0;
+            }
             enemuMover = new EnemuMover()
             {
                 moveData = moveDatas
