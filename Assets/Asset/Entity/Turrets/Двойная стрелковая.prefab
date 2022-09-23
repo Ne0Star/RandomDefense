@@ -816,9 +816,9 @@ MonoBehaviour:
       m_Calls: []
   costData:
     raresType: 1
-    gold: 0
-    energy: 0
-    component: 0
+    gold: 100
+    energy: 30
+    component: 15
     chance: 70
   effects:
     effect: 0
