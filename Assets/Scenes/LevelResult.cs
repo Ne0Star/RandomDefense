@@ -31,7 +31,7 @@ public class LevelResult : MonoBehaviour
 
     private void SaveResult(int total)
     {
-        var lb = "lida";
+        var lb = "lidas";
         if (total > YandexGame.savesData.lastRecoord)
         {
             YandexGame.NewLeaderboardScores(lb, total);
