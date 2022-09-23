@@ -12,6 +12,11 @@ public class TR : MonoBehaviour
     [SerializeField] private Ease closeEasy;
     [SerializeField] private StaticEntityTrigger trigger;
 
+    public void SetRadiusColor(CostData.Rares rare)
+    {
+        radiusRender.color = LevelManager.Instance.GetRareColor(rare);
+    }
+
     public virtual void Open()
     {
         transform.DOScale(new Vector3(trigger.TriggerRadius, trigger.TriggerRadius, trigger.TriggerRadius), openDuration).SetEase(openEasy).OnStart(() => radiusRender.enabled = true);

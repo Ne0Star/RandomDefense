@@ -219,7 +219,7 @@ MonoBehaviour:
   agent: {fileID: 806778900546621460}
   type: 0
   attackSpeed: 0.25
-  attackTick: 0
+  attackTick: 2
   currentTick: 0
 --- !u!195 &806778900546621460
 NavMeshAgent:
@@ -305,7 +305,7 @@ MonoBehaviour:
     power: 0
     duration: 0
   radius: {fileID: 0}
-  weaponMode: 0
+  weaponMode: 1
   target: {fileID: 0}
   targets: []
   rotate: 1

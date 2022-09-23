@@ -107,6 +107,10 @@ MonoBehaviour:
     energy: 100
     component: 150
     chance: 20
+  effects:
+    effect: 0
+    power: 0
+    duration: 0
   radius: {fileID: 9179180955788351759}
   weaponMode: 0
   target: {fileID: 0}
@@ -1025,7 +1029,7 @@ PrefabInstance:
     - target: {fileID: 5876666222023014371, guid: c22ceccf5cc5f8a44ab8dfe70325ed64,
         type: 3}
       propertyPath: m_Color.b
-      value: 0.8581357
+      value: 0.46408844
       objectReference: {fileID: 0}
     - target: {fileID: 5876666222023014371, guid: c22ceccf5cc5f8a44ab8dfe70325ed64,
         type: 3}
@@ -1037,6 +1041,11 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6440879260362233359, guid: c22ceccf5cc5f8a44ab8dfe70325ed64,
+        type: 3}
+      propertyPath: trigger
+      value: 
+      objectReference: {fileID: 7415727249172228023}
     - target: {fileID: 7007541727684015774, guid: c22ceccf5cc5f8a44ab8dfe70325ed64,
         type: 3}
       propertyPath: m_RootOrder

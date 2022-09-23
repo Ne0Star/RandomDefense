@@ -173,14 +173,6 @@ public abstract class EntityUnit : Entity
 public abstract class Entity : MonoBehaviour
 {
 
-    private void OnValidate()
-    {
-        if (LevelManager.Instance)
-        {
-            LevelManager.Instance.ByuManager.Roll();
-        }
-    }
-
     #region Events
     [System.Serializable]
     public class OnDied : UnityEngine.Events.UnityEvent<Entity> { }
@@ -471,6 +463,17 @@ public abstract class Turret : EntityStatic
     [SerializeField] protected bool weaponMode = false;
     [SerializeField] protected EntityUnit target;
     [SerializeField] protected List<EntityUnit> targets;
+    private void OnDrawGizmos()
+    {
+        radius.SetRadiusColor(costData.RaresType);
+
+    }
+
+    private void OnDisable()
+    {
+        target = null;
+        targets = null;
+    }
 
     public virtual void UpdateTurret(int currentWave, float minDamage, float maxDamage)
     {
@@ -479,6 +482,7 @@ public abstract class Turret : EntityStatic
     public EntityUnit Target { get => target; set => target = value; }
     public List<EntityUnit> Targets { get => targets; set => targets = value; }
     public bool WeaponMode { get => weaponMode; set => weaponMode = value; }
+    public TR Radius { get => radius; set => radius = value; }
 
 
     /// <summary>

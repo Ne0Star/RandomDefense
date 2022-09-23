@@ -19,6 +19,26 @@ public class MultiTurrets : Turret
         }
     }
 
+    public override float GetTarretRadius()
+    {
+        float radius = 100f;
+        foreach (Turret t in turrets)
+        {
+            if(t.GetTarretRadius() < radius)
+            {
+                radius = t.GetTarretRadius();
+            }
+        }
+        return radius;
+    }
+
+    private void OnDrawGizmos()
+    {
+        foreach (Turret t in turrets)
+        {
+            t.Radius.SetRadiusColor(t.CostData.RaresType);
+        }
+    }
     public override void HideRadius()
     {
         foreach (Turret t in turrets)

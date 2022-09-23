@@ -13,7 +13,6 @@ public class GroundType_5 : Enemu
         speed.Multipler += speed.RecoveryRate;
         agent.speed = speed.GetCurrentValue();
     }
-
     public override void Tick()
     {
         Normalize();

@@ -421,9 +421,9 @@ MonoBehaviour:
   costData:
     raresType: 2
     gold: 350
-    energy: 100
-    component: 150
-    chance: 35
+    energy: 200
+    component: 50
+    chance: 49
   effects:
     effect: 1
     power: 1
@@ -1029,13 +1029,18 @@ PrefabInstance:
     - target: {fileID: 5876666222023014371, guid: c22ceccf5cc5f8a44ab8dfe70325ed64,
         type: 3}
       propertyPath: m_Color.g
-      value: 0.0698705
+      value: 0.064486444
       objectReference: {fileID: 0}
     - target: {fileID: 5876666222023014371, guid: c22ceccf5cc5f8a44ab8dfe70325ed64,
         type: 3}
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6440879260362233359, guid: c22ceccf5cc5f8a44ab8dfe70325ed64,
+        type: 3}
+      propertyPath: trigger
+      value: 
+      objectReference: {fileID: 1624153831258304825}
     - target: {fileID: 7007541727684015774, guid: c22ceccf5cc5f8a44ab8dfe70325ed64,
         type: 3}
       propertyPath: m_RootOrder

@@ -406,7 +406,11 @@ MonoBehaviour:
     gold: 340
     energy: 170
     component: 80
-    chance: 50
+    chance: 35
+  effects:
+    effect: 0
+    power: 0
+    duration: 0
   radius: {fileID: 4297712926694884384}
   weaponMode: 0
   target: {fileID: 0}
@@ -610,6 +614,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6440879260362233359, guid: c22ceccf5cc5f8a44ab8dfe70325ed64,
+        type: 3}
+      propertyPath: trigger
+      value: 
+      objectReference: {fileID: 7117396796043678182}
     - target: {fileID: 7007541727684015774, guid: c22ceccf5cc5f8a44ab8dfe70325ed64,
         type: 3}
       propertyPath: m_RootOrder

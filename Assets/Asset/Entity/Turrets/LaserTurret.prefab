@@ -487,11 +487,15 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   costData:
-    raresType: 3
-    gold: 250
+    raresType: 1
+    gold: 200
     energy: 200
-    component: 120
-    chance: 50
+    component: 40
+    chance: 73
+  effects:
+    effect: 0
+    power: 0
+    duration: 0
   radius: {fileID: 3012052608181092784}
   weaponMode: 0
   target: {fileID: 0}
@@ -970,18 +974,23 @@ PrefabInstance:
     - target: {fileID: 5876666222023014371, guid: c22ceccf5cc5f8a44ab8dfe70325ed64,
         type: 3}
       propertyPath: m_Color.b
-      value: 0.8795767
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5876666222023014371, guid: c22ceccf5cc5f8a44ab8dfe70325ed64,
         type: 3}
       propertyPath: m_Color.g
-      value: 0
+      value: 0.955801
       objectReference: {fileID: 0}
     - target: {fileID: 5876666222023014371, guid: c22ceccf5cc5f8a44ab8dfe70325ed64,
         type: 3}
       propertyPath: m_Color.r
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6440879260362233359, guid: c22ceccf5cc5f8a44ab8dfe70325ed64,
+        type: 3}
+      propertyPath: trigger
+      value: 
+      objectReference: {fileID: 6117757120822379690}
     - target: {fileID: 7007541727684015774, guid: c22ceccf5cc5f8a44ab8dfe70325ed64,
         type: 3}
       propertyPath: m_RootOrder

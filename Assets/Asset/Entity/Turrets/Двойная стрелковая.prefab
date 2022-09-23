@@ -491,11 +491,11 @@ MonoBehaviour:
   rotateSpeed: 0.2
   rotated: 0
   shotSFX:
-  - {fileID: 200441023199501209}
-  - {fileID: 200441022511905718}
-  attackDamage: 7
-  attackCount: 2
-  attackSpeed: 0.06
+  - {fileID: 200441022715676752}
+  - {fileID: 200441023135377535}
+  attackDamage: 2.2
+  attackCount: 3
+  attackSpeed: 0.04
   reloadSpeed: 0.2
 --- !u!1 &1261524680200488180
 GameObject:
@@ -713,7 +713,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb0e7d6459ec4ce4e8742514e2faf305, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  triggerRadius: 0.52
+  triggerRadius: 2
   type: 1
 --- !u!1 &5524966503295466100
 GameObject:
@@ -760,7 +760,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb0e7d6459ec4ce4e8742514e2faf305, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  triggerRadius: 0.52
+  triggerRadius: 2
   type: 1
 --- !u!1 &7189511397024915909
 GameObject:
@@ -816,10 +816,10 @@ MonoBehaviour:
       m_Calls: []
   costData:
     raresType: 1
-    gold: 100
-    energy: 30
-    component: 15
-    chance: 70
+    gold: 120
+    energy: 10
+    component: 20
+    chance: 75
   effects:
     effect: 0
     power: 0
@@ -849,7 +849,7 @@ PrefabInstance:
     - target: {fileID: 5876666222023014371, guid: c22ceccf5cc5f8a44ab8dfe70325ed64,
         type: 3}
       propertyPath: m_Color.g
-      value: 0.46666667
+      value: 0.955801
       objectReference: {fileID: 0}
     - target: {fileID: 5876666222023014371, guid: c22ceccf5cc5f8a44ab8dfe70325ed64,
         type: 3}
@@ -869,12 +869,12 @@ PrefabInstance:
     - target: {fileID: 7007541727684015774, guid: c22ceccf5cc5f8a44ab8dfe70325ed64,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.52
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7007541727684015774, guid: c22ceccf5cc5f8a44ab8dfe70325ed64,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.52
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7007541727684015774, guid: c22ceccf5cc5f8a44ab8dfe70325ed64,
         type: 3}
@@ -971,7 +971,7 @@ PrefabInstance:
     - target: {fileID: 5876666222023014371, guid: c22ceccf5cc5f8a44ab8dfe70325ed64,
         type: 3}
       propertyPath: m_Color.g
-      value: 0.46666667
+      value: 0.955801
       objectReference: {fileID: 0}
     - target: {fileID: 5876666222023014371, guid: c22ceccf5cc5f8a44ab8dfe70325ed64,
         type: 3}
@@ -991,12 +991,12 @@ PrefabInstance:
     - target: {fileID: 7007541727684015774, guid: c22ceccf5cc5f8a44ab8dfe70325ed64,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.52
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7007541727684015774, guid: c22ceccf5cc5f8a44ab8dfe70325ed64,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.52
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7007541727684015774, guid: c22ceccf5cc5f8a44ab8dfe70325ed64,
         type: 3}

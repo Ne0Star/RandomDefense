@@ -12,6 +12,8 @@ public class FireTurret : RotateTurret
     [SerializeField] private Transform radiusTarget;
     [SerializeField] private bool wait;
     [SerializeField] private float triggersDuration;
+
+
     protected override void OnAttack()
     {
         StartCoroutine(StartAttack());

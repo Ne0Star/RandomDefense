@@ -320,6 +320,13 @@ public class LevelManager : OneSingleton<LevelManager>
         onGameSpeed?.Invoke(gameSpeed);
         t_gameSpeed.text = gameSpeeds[speedIndex].viewValue;
     }
+    private void OnDrawGizmos()
+    {
+        if(LevelManager.Instance != this)
+        {
+            LevelManager.Instance = this;
+        }
+    }
 
     public Color useless;
     public Color standart;

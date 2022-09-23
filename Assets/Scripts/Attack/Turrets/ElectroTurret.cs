@@ -24,6 +24,10 @@ public class ElectroTurret : Turret
         dealers = gameObject.GetComponentsInChildren<ElecticDealer>();
     }
 
+    public override float GetTarretRadius()
+    {
+        return mainTrigger.TriggerRadius;
+    }
     public override void ShowRadius()
     {
         radius.Open(mainTrigger.TriggerRadius);

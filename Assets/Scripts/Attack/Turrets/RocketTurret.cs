@@ -71,11 +71,27 @@ public class RocketTurret : ShellTurret
     [SerializeField] private int attackCount;
     [SerializeField] private float attackSpeed;
     [SerializeField] private float reloadSpeed;
+    private void OnDisable()
+    {
+        if (patrons != null)
+            foreach (Patron p in patrons)
+            {
+                if (p)
+                {
+                    if (p.destroyParticle)
+                    {
+                        p.destroyParticle.gameObject.SetActive(false);
+                    }
+                    p.gameObject.SetActive(false);
+                }
 
+            }
+        attack = false;
+    }
     protected override void OnAttack()
     {
-        if(gameObject.activeInHierarchy)
-        StartCoroutine(Attack_Animation());
+        if (gameObject.activeInHierarchy)
+            StartCoroutine(Attack_Animation());
     }
     public override void UpdateTurret(int currentWave, float minDamage, float maxDamage)
     {
@@ -191,7 +207,7 @@ public class RocketTurret : ShellTurret
         {
             trajectory.CreatePatron(dt, result.transform, target.transform, (p, t) =>
             {
-                if (target)
+                if (target && gameObject.activeInHierarchy)
                 {
                     StartCoroutine(PatronComplete(result, target));
                 }

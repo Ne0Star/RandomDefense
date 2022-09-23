@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb0e7d6459ec4ce4e8742514e2faf305, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  triggerRadius: 12
+  triggerRadius: 6
   type: 1
 --- !u!1 &4821575773720038215
 GameObject:
@@ -269,10 +269,10 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   costData:
-    raresType: 1
-    gold: 400
-    energy: 80
-    component: 50
+    raresType: 0
+    gold: 120
+    energy: 30
+    component: 15
     chance: 80
   effects:
     effect: 0
@@ -305,17 +305,17 @@ PrefabInstance:
     - target: {fileID: 5876666222023014371, guid: c22ceccf5cc5f8a44ab8dfe70325ed64,
         type: 3}
       propertyPath: m_Color.b
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5876666222023014371, guid: c22ceccf5cc5f8a44ab8dfe70325ed64,
         type: 3}
       propertyPath: m_Color.g
-      value: 0.46666667
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5876666222023014371, guid: c22ceccf5cc5f8a44ab8dfe70325ed64,
         type: 3}
       propertyPath: m_Color.r
-      value: 0
+      value: 0.18784547
       objectReference: {fileID: 0}
     - target: {fileID: 6440879260362233359, guid: c22ceccf5cc5f8a44ab8dfe70325ed64,
         type: 3}
@@ -330,12 +330,12 @@ PrefabInstance:
     - target: {fileID: 7007541727684015774, guid: c22ceccf5cc5f8a44ab8dfe70325ed64,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 12
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7007541727684015774, guid: c22ceccf5cc5f8a44ab8dfe70325ed64,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 12
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7007541727684015774, guid: c22ceccf5cc5f8a44ab8dfe70325ed64,
         type: 3}

@@ -17,7 +17,14 @@ public class RotateTurret : Turret
     {
         if (!rotateParent) rotateParent = transform;
     }
-
+    private void OnDrawGizmos()
+    {
+        if (radius)
+        {
+            radius.SetRadiusColor(costData.RaresType);
+            radius.transform.localScale = new Vector3(mainTrigger.TriggerRadius, mainTrigger.TriggerRadius, 0);
+        }
+    }
     public override void HideRadius()
     {
         if(radius)
@@ -97,13 +104,4 @@ return;
     {
 
     }
-
-    private void OnDrawGizmos()
-    {
-        if (radius)
-        {
-            radius.transform.localScale = new Vector3(mainTrigger.TriggerRadius, mainTrigger.TriggerRadius, 0);
-        }
-    }
-
 }

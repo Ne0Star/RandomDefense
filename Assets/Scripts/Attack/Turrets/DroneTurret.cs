@@ -33,7 +33,10 @@ public class DroneTurret : Turret
     {
         droneSystem = FindObjectOfType<TrajectorySystem>();
     }
-
+    public override float GetTarretRadius()
+    {
+        return mainTrigger.TriggerRadius;
+    }
     public override void HideRadius()
     {
         radius.Close();
@@ -57,6 +60,13 @@ public class DroneTurret : Turret
     }
     public override void Tick()
     {
+        if (target)
+        {
+            if (!target.gameObject.activeInHierarchy)
+            {
+                target = null;
+            }
+        }
         currentTick++;
         if (currentTick >= tickToDamage)
         {
@@ -97,7 +107,7 @@ public class DroneTurret : Turret
 
                 }
             }
-            yield return new WaitForSeconds(actionDuration.GetCurrentValue()/LevelManager.Instance.GameSpeed);
+            yield return new WaitForSeconds(actionDuration.GetCurrentValue() / LevelManager.Instance.GameSpeed);
         }
         blocker = false;
     }

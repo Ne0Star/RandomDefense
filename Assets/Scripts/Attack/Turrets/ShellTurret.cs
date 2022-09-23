@@ -27,7 +27,20 @@ public class ShellTurret : RotateTurret
             patrons[i].gameObject.SetActive(false);
         }
     }
-
+    private void OnDisable()
+    {
+        if (patrons != null)
+            foreach (Patron p in patrons)
+            {
+                if (p)
+                {
+                    if (p.gameObject)
+                    {
+                        p.gameObject.SetActive(false);
+                    }
+                }
+            }
+    }
     private void OnDestroy()
     {
         foreach (Patron p in patrons)
