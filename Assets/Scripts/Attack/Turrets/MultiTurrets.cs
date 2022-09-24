@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class MultiTurrets : Turret
 {
+    public bool mainTarget = false;
     public bool waotRotateMain = false;
     public bool weaponsMode = false;
     public RotateTurret mainTurret; // турель которая сама выставляет цель
@@ -81,6 +82,7 @@ public class MultiTurrets : Turret
             else
             {
                 t.Tick();
+                if(mainTarget)
                 t.Target = mainTurret.Target;
             }
         }

@@ -614,7 +614,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 50
   m_Sprite: {fileID: 21300000, guid: 2ed05964e88e2564a8937f42c12fb700, type: 3}
-  m_Color: {r: 1, g: 0.064486444, b: 0, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -717,7 +717,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 50
   m_Sprite: {fileID: 21300000, guid: 2ed05964e88e2564a8937f42c12fb700, type: 3}
-  m_Color: {r: 1, g: 0, b: 0.46408844, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -857,6 +857,7 @@ MonoBehaviour:
   weaponMode: 0
   target: {fileID: 0}
   targets: []
+  mainTarget: 1
   waotRotateMain: 1
   weaponsMode: 0
   mainTurret: {fileID: 7843715496580152244}
