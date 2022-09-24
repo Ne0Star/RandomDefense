@@ -420,10 +420,10 @@ MonoBehaviour:
       m_Calls: []
   costData:
     raresType: 2
-    gold: 350
-    energy: 200
-    component: 50
-    chance: 49
+    gold: 220
+    energy: 125
+    component: 35
+    chance: 50
   effects:
     effect: 1
     power: 1
@@ -1021,6 +1021,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8762026280940881164}
     m_Modifications:
+    - target: {fileID: 5876666222023014371, guid: c22ceccf5cc5f8a44ab8dfe70325ed64,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5876666222023014371, guid: c22ceccf5cc5f8a44ab8dfe70325ed64,
         type: 3}
       propertyPath: m_Color.b

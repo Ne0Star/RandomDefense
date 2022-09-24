@@ -110,7 +110,7 @@ Transform:
   m_GameObject: {fileID: 3231986263705729193}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.044926137, y: -9.978055, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6560438842819755706}
@@ -141,7 +141,7 @@ MonoBehaviour:
     gold: 50
     energy: 0
     component: 5
-    chance: 85
+    chance: 80
   effects:
     effect: 0
     power: 0
@@ -160,10 +160,10 @@ MonoBehaviour:
   shotSFX:
   - {fileID: 3231986263552231379}
   - {fileID: 8793680086400405263}
-  attackDamage: 2.7
+  attackDamage: 3
   attackCount: 3
   attackSpeed: 0.03
-  reloadSpeed: 0.15
+  reloadSpeed: 0.12
 --- !u!1 &4273095420314571889
 GameObject:
   m_ObjectHideFlags: 0
@@ -379,7 +379,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb0e7d6459ec4ce4e8742514e2faf305, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  triggerRadius: 2
+  triggerRadius: 2.7
   type: 1
 --- !u!1001 &1006919216779078231
 PrefabInstance:
@@ -416,12 +416,12 @@ PrefabInstance:
     - target: {fileID: 7007541727684015774, guid: c22ceccf5cc5f8a44ab8dfe70325ed64,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 2
+      value: 2.7
       objectReference: {fileID: 0}
     - target: {fileID: 7007541727684015774, guid: c22ceccf5cc5f8a44ab8dfe70325ed64,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 2
+      value: 2.7
       objectReference: {fileID: 0}
     - target: {fileID: 7007541727684015774, guid: c22ceccf5cc5f8a44ab8dfe70325ed64,
         type: 3}

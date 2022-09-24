@@ -152,7 +152,7 @@ MonoBehaviour:
     gold: 200
     energy: 120
     component: 70
-    chance: 48
+    chance: 53
   effects:
     effect: 0
     power: 0

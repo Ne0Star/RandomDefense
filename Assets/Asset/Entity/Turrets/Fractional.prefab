@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb0e7d6459ec4ce4e8742514e2faf305, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  triggerRadius: 2
+  triggerRadius: 1.4
   type: 1
 --- !u!1 &6993626820228905939
 GameObject:
@@ -190,7 +190,7 @@ MonoBehaviour:
     gold: 70
     energy: 0
     component: 5
-    chance: 86
+    chance: 82
   effects:
     effect: 0
     power: 0
@@ -209,7 +209,7 @@ MonoBehaviour:
   shotSFX:
   - {fileID: 6993626821118352355}
   - {fileID: 6993626820228905932}
-  attackDamage: 7
+  attackDamage: 10
   attackCount: 2
   attackSpeed: 0.06
   reloadSpeed: 0.2
@@ -416,12 +416,12 @@ PrefabInstance:
     - target: {fileID: 7007541727684015774, guid: c22ceccf5cc5f8a44ab8dfe70325ed64,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 2
+      value: 1.4
       objectReference: {fileID: 0}
     - target: {fileID: 7007541727684015774, guid: c22ceccf5cc5f8a44ab8dfe70325ed64,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 2
+      value: 1.4
       objectReference: {fileID: 0}
     - target: {fileID: 7007541727684015774, guid: c22ceccf5cc5f8a44ab8dfe70325ed64,
         type: 3}

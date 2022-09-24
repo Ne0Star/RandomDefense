@@ -817,7 +817,7 @@ Transform:
   m_GameObject: {fileID: 5851783153534681445}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.5, y: -10.478, z: -0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5851783154371310314}
@@ -848,7 +848,7 @@ MonoBehaviour:
     gold: 250
     energy: 200
     component: 80
-    chance: 50
+    chance: 55
   effects:
     effect: 0
     power: 0
