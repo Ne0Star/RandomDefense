@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -5,7 +6,7 @@ using UnityEngine.EventSystems;
 [System.Serializable]
 public struct BYU_Dealer
 {
-    
+
     [SerializeField] private float energy, gold, component;
     [SerializeField] private TMP_Text g, e, c;
     public TMP_Text Component_Text { get => c; }
@@ -63,7 +64,7 @@ public class TapeDragItem : TapeItem, IPointerDownHandler
             contentImg.enabled = true;
             contentImg.sprite = item.GetImage();
         }
-
+        colorBg.color = LevelManager.Instance.GetRareColor(item.Prefab.CostData.RaresType);
         gold.text = item.Prefab.CostData.Gold + "";
         energy.text = item.Prefab.CostData.Energy + "";
         component.text = item.Prefab.CostData.Component + "";
