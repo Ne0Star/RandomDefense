@@ -20,7 +20,6 @@ public class EnemuManager : MonoBehaviour
     [SerializeField] private Transform spawnParent;
 
     [SerializeField] private List<EnemuVariant> enemuVariants = new List<EnemuVariant>();
-
     [SerializeField] private List<Enemu> activeEnemies;
     [SerializeField] private List<DynamicMoveData> dynamicDatas;
     [SerializeField] private NativeArray<MoveEnemuData> moveDatas;
@@ -35,7 +34,8 @@ public class EnemuManager : MonoBehaviour
     [SerializeField] private int groupCount;
 
     private EnemuMover enemuMover;
-    private JobHandle moveHandle, collisionHandle;
+    private HitsRotator hitsRotator;
+    //private JobHandle moveHandle, collisionHandle, hitsHandle;
 
     public int GroupCount { get => groupCount; set => groupCount = value; }
     public float Pose { get => pose; set => pose = value; }
@@ -252,8 +252,14 @@ public class EnemuManager : MonoBehaviour
             {
                 moveData = moveDatas
             };
+            hitsRotator = new HitsRotator()
+            {
+                target = Camera.main.ScreenToWorldPoint(rotateTARGET.position)
+            };
+            JobHandle rotateHandle = hitsRotator.Schedule(hitsArray);
             JobHandle moveHandle = enemuMover.Schedule(array);
             moveHandle.Complete();
+            rotateHandle.Complete();
         }
     }
 
@@ -267,7 +273,7 @@ public class EnemuManager : MonoBehaviour
         return enemies;
     }
 
-    private TransformAccessArray array;
+    private TransformAccessArray array, hitsArray;
 
     private void OnDestroy()
     {
@@ -277,6 +283,8 @@ public class EnemuManager : MonoBehaviour
             moveDatas.Dispose();
         if (array.isCreated)
             array.Dispose();
+        if (hitsArray.isCreated)
+            hitsArray.Dispose();
     }
 
 
@@ -297,14 +305,18 @@ public class EnemuManager : MonoBehaviour
             enemu.Kill(reach);
         }
     }
-
-    private void Awake()
+    private void OnDrawGizmos()
     {
         defaultSpeedMultipler = allSpeedMultipler;
+    }
+    private void Awake()
+    {
+
         spawners = new List<Spawner>();
         spawnersIndex = new List<int>();
         activeEnemiesTransforms = new List<Transform>();
         List<Transform> temp = new List<Transform>();
+        List<Transform> enemuHits = new List<Transform>();
         for (int i = 0; i < enemuVariants.Count; i++)
         {
             EnemuVariant enemuVariant = enemuVariants[i];
@@ -317,6 +329,7 @@ public class EnemuManager : MonoBehaviour
                     Enemu result = Instantiate(enemuVariant.variant, new Vector3(transform.position.x, transform.position.y, 0), Quaternion.identity, p.transform);
                     result.gameObject.SetActive(false);
                     temp.Add(result.transform);
+                    enemuHits.Add(result.Hit.transform);
                     dynamicDatas.Add(new DynamicMoveData()
                     {
 
@@ -327,10 +340,12 @@ public class EnemuManager : MonoBehaviour
             }
         }
         array = new TransformAccessArray(temp.ToArray());
+        hitsArray = new TransformAccessArray(enemuHits.ToArray());
         moveDatas = new NativeArray<MoveEnemuData>(dynamicDatas.Count, Allocator.Persistent);
         allPositions = new NativeArray<Vector3>(dynamicDatas.Count, Allocator.Persistent);
         //StartCoroutine(Life());
     }
+    public Transform rotateTARGET;
 }
 
 
@@ -365,6 +380,18 @@ public struct MoveEnemuData
     public int currentFramesCount;
     public float DistanceToComplete;
 }
+
+public struct HitsRotator : IJobParallelForTransform
+{
+    public Vector3 target;
+    public void Execute(int index, TransformAccess transform)
+    {
+        float angle = Mathf.Atan2(target.y - transform.position.y, target.x - transform.position.x) * Mathf.Rad2Deg + 90;//
+        angle = math.round(angle);
+        transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, angle);
+    }
+}
+
 
 [BurstCompile]
 public struct EnemuMover : IJobParallelForTransform

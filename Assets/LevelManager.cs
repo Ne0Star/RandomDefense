@@ -302,11 +302,21 @@ public class LevelManager : OneSingleton<LevelManager>
     public void StopSpeed()
     {
         //gameSpeed = 0f;
+        if(enemuManager)
+        enemuManager.SwitchSpeedMultipler(0.001f);
         Time.timeScale = 0f;
         //onGameSpeed?.Invoke(gameSpeed);
-        if (t_gameSpeed)
-            t_gameSpeed.text = "0";
+        //if (t_gameSpeed)
+        //    t_gameSpeed.text = "0";
     }
+
+    public void ResumeSpeed()
+    {
+        Time.timeScale = 1f;
+        if (enemuManager)
+            enemuManager.RemoveSpeedMultipler();
+    }
+
 
     public void ChangeSpeed()
     {
@@ -368,6 +378,21 @@ public class LevelManager : OneSingleton<LevelManager>
                 result = epick; break;
         }
         return result;
+    }
+
+
+    public void StartLesson()
+    {
+        
+        uiManager.OpenPage(lesson, () =>
+        {
+            StopSpeed();
+            lesson.StartLesson(() =>
+            {
+                ChangeSpeed();
+            });
+            
+        });
     }
 
     [SerializeField] private Transform[] banners;
@@ -436,6 +461,7 @@ public class LevelManager : OneSingleton<LevelManager>
         uiManager = FindObjectOfType<UIManager>();
         waveManager = FindObjectOfType<WaveManager>();
         mapManager = FindObjectOfType<MapManager>();
+        if(!enemuManager)
         enemuManager = FindObjectOfType<EnemuManager>();
         if (!levelResult)
             levelResult = FindObjectOfType<LevelResult>();

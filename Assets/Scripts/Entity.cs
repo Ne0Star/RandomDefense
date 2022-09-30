@@ -76,7 +76,6 @@ public abstract class EntityStatic : Entity
 /// </summary>
 public abstract class EntityUnit : Entity
 {
-    [SerializeField] protected bool disableHit = true;
     [SerializeField] protected bool hideHit = true;
     [SerializeField] private HitBar hit;
     public HitBar Hit { get => hit; }
@@ -92,7 +91,7 @@ public abstract class EntityUnit : Entity
         if (hit)
             if (hit.gameObject)
             {
-                if (disableHit || hideHit)
+                if (hideHit)
                     hit.gameObject.SetActive(false);
             }
         if (renderers == null)
@@ -113,6 +112,7 @@ public abstract class EntityUnit : Entity
         if (hit) hit.TakeDamage(damage, attackDuration, () => CheckDied());
         if (!blockHit && !hideHit)
         {
+            if(gameObject.activeInHierarchy)
             StartCoroutine(WaitHitBar());
         }
     }
@@ -151,16 +151,17 @@ public abstract class EntityUnit : Entity
         if (hit) hit.TakeHealth(value, attackDuration);
         if (!blockHit && !hideHit)
         {
-            StartCoroutine(WaitHitBar());
+            if (gameObject.activeInHierarchy)
+                StartCoroutine(WaitHitBar());
         }
     }
 
-    private bool blockHit = false;
+    protected bool blockHit = false;
     private IEnumerator WaitHitBar()
     {
         blockHit = true;
         hit.gameObject.SetActive(true);
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(1.5f);
         hit.gameObject.SetActive(false);
         blockHit = false;
         hideHit = false;
@@ -281,6 +282,9 @@ public abstract class Enemu : EntityUnit
 
     private void OnDisable()
     {
+        Hit.gameObject.SetActive(false);
+        blockHit = false;
+        hideHit = false;
         agent.avoidancePriority = defaultPriority;
         isDied = true;
         target = null;

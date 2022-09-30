@@ -8,8 +8,14 @@ public class LessonTimeLine : UIPage
     [SerializeField] private bool next = false;
     public void StartLesson()
     {
+        
         current = 0;
-        StartCoroutine(Wait());
+        StartCoroutine(Wait(() => { }));
+    }
+    public void StartLesson(System.Action onComplete)
+    {
+        current = 0;
+        StartCoroutine(Wait(onComplete));
     }
     private void Start()
     {
@@ -20,7 +26,7 @@ public class LessonTimeLine : UIPage
         StartLesson();
     }
 
-    private IEnumerator Wait()
+    private IEnumerator Wait(System.Action complete)
     {
         LevelManager.Instance.StopSpeed();
         lessons[current].gameObject.SetActive(true);
@@ -30,11 +36,12 @@ public class LessonTimeLine : UIPage
         current++;
         if (current != lessons.Length)
         {
-            StartCoroutine(Wait());
+            StartCoroutine(Wait(complete));
 
             yield break;
         }
-        LevelManager.Instance.ChangeSpeed();
+        complete();
+        LevelManager.Instance.ResumeSpeed();
         LevelManager.Instance.UiManager.ClosePage(this);
     }
     private void Update()
