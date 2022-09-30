@@ -76,6 +76,7 @@ public abstract class EntityStatic : Entity
 /// </summary>
 public abstract class EntityUnit : Entity
 {
+    [SerializeField] protected bool disableHit = true;
     [SerializeField] protected bool hideHit = true;
     [SerializeField] private HitBar hit;
     public HitBar Hit { get => hit; }
@@ -91,7 +92,7 @@ public abstract class EntityUnit : Entity
         if (hit)
             if (hit.gameObject)
             {
-                if (hideHit)
+                if (disableHit || hideHit)
                     hit.gameObject.SetActive(false);
             }
         if (renderers == null)
@@ -110,10 +111,10 @@ public abstract class EntityUnit : Entity
         if (attackDuration < 0) attackDuration = 0.2f;
 
         if (hit) hit.TakeDamage(damage, attackDuration, () => CheckDied());
-        //if (!blockHit && !hideHit)
-        //{
-        //    StartCoroutine(WaitHitBar());
-        //}
+        if (!blockHit && !hideHit)
+        {
+            StartCoroutine(WaitHitBar());
+        }
     }
 
     private void CheckDied()
@@ -162,6 +163,7 @@ public abstract class EntityUnit : Entity
         yield return new WaitForSeconds(1f);
         hit.gameObject.SetActive(false);
         blockHit = false;
+        hideHit = false;
     }
 }
 // Awake

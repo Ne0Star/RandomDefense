@@ -136,7 +136,7 @@ namespace YG
         public static Action GetDataEvent;
 
 #if UNITY_EDITOR
-        
+
         public static void SaveLocal()
         {
             string path = Application.dataPath + "/YandexGame/WorkingData/";
@@ -178,7 +178,7 @@ namespace YG
                 finally
                 {
                     fs.Close();
-                } 
+                }
             }
             else ResetSaveProgress();
         }
@@ -227,7 +227,7 @@ namespace YG
 
         void SiteLock()
         {
-            try 
+            try
             {
                 string urlOrig = GetURLFromPage();
 
@@ -560,7 +560,7 @@ namespace YG
             {
                 rank[0] = 1; rank[1] = 2; rank[2] = 3;
                 photo[0] = "https://drive.google.com/u/0/uc?id=1TCoEwiiUvIiQwAMbKcBssneWkmsoofuI&export=download";
-                photo[1] = "https://drive.google.com/u/0/uc?id=1MlVQuyQTKMjoX3FDJYnsLKhEb4_M9FQB&export=download"; 
+                photo[1] = "https://drive.google.com/u/0/uc?id=1MlVQuyQTKMjoX3FDJYnsLKhEb4_M9FQB&export=download";
                 photo[2] = "https://drive.google.com/u/0/uc?id=11ZwzHDXm_UNxqnMke2ONo6oJaGVp7VgP&export=download";
                 playersName[0] = "Player"; playersName[1] = "Ivan"; playersName[2] = "Maria";
                 scorePlayers[0] = 23; scorePlayers[1] = 115; scorePlayers[2] = 1053;
@@ -618,7 +618,7 @@ namespace YG
         {
             Purchase purchase = null;
 
-            for(int i = 0; i < PaymentsData.id.Length; i++)
+            for (int i = 0; i < PaymentsData.id.Length; i++)
             {
                 if (PaymentsData.id[i] == ID)
                 {
@@ -693,7 +693,7 @@ namespace YG
 #endif
             Message("Review");
         }
-#endregion Review
+        #endregion Review
 
         #region Prompt
         [DllImport("__Internal")]
@@ -1071,7 +1071,7 @@ namespace YG
             PurchaseFailed?.Invoke();
             PurchaseFailedEvent?.Invoke(id);
         }
-#endregion Payments
+        #endregion Payments
 
         #region Prompt
         public static Action PromptSuccessEvent;
@@ -1091,12 +1091,18 @@ namespace YG
         #region Update
         int delayFirstCalls = -1;
         static float timerShowAd;
-
+        public static bool block = false;
+#if UNITY_EDITOR
+        [SerializeField] private float test;
+#endif
         private void Update()
         {
             // Таймер для обработки показа Fillscreen рекламы
-            timerShowAd += Time.unscaledDeltaTime;
-
+            if (!block)
+                timerShowAd += Time.unscaledDeltaTime;
+#if UNITY_EDITOR
+            test = timerShowAd;
+#endif
             // Задержка вызова метода FirstСalls
             if (delayFirstCalls < infoYG.SDKStartDelay)
             {

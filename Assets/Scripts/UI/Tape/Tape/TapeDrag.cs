@@ -119,7 +119,7 @@ public class TapeDrag : Tape
                 shadow_Img.gameObject.SetActive(true);
                 shadow_Img.sprite = spawning.GetImage();
             }
-
+            YG.YandexGame.block = true;
             StartCoroutine(WaitUp(item, spawning));
         }
         else
@@ -162,7 +162,7 @@ public class TapeDrag : Tape
         StartCoroutine(Move(shadow_Bg.transform, currentCreator));
         yield return new WaitUntil(() => Input.GetMouseButtonUp(0));
         isMove = false;
-
+        YG.YandexGame.block = false;
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         //ByuDealer c = Instantiate(currentCreator);
 
