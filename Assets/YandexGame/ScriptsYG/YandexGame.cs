@@ -1092,8 +1092,14 @@ namespace YG
         int delayFirstCalls = -1;
         static float timerShowAd;
         public static bool block = false;
+
 #if UNITY_EDITOR
         [SerializeField] private float test;
+        [SerializeField] private float tempSetter;
+        private void OnValidate()
+        {
+            timerShowAd = tempSetter;
+        }
 #endif
         private void Update()
         {

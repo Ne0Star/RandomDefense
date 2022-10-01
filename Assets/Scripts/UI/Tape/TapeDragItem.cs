@@ -2,7 +2,6 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using YG;
 
 [System.Serializable]
 public struct BYU_Dealer
@@ -53,7 +52,7 @@ public class TapeDragItem : TapeItem, IPointerDownHandler
 
     public override void SetCurrentItem(ByuDealer item)
     {
-        if (!item) return;
+        if (!item || ! item.Prefab) return;
         contentImg.enabled = false;
         //contentImage.sprite = item.GetSprite();
         if (item.GetImageBG())

@@ -14,33 +14,33 @@ public class Balance : MonoBehaviour
 
     private void Awake()
     {
-        if(!cheatMode)
-        switch (LevelManager.Instance.LevelPresset.BalanceType)
+        if (!cheatMode)
+            switch (LevelManager.Instance.LevelPresset.BalanceType)
+            {
+                case BalanceType.Type_0:
+                    Gold = 1000;
+                    Energy = 500;
+                    Component = 200;
+                    break;
+                case BalanceType.Type_1:
+                    Gold = 1000;
+                    Energy = 700;
+                    Component = 250;
+                    break;
+                case BalanceType.Type_2:
+                    Gold = 2500;
+                    Energy = 1200;
+                    Component = 400;
+                    break;
+                case BalanceType.Type_3:
+                    Gold = 5000;
+                    Energy = 2000;
+                    Component = 1000;
+                    break;
+            }
+        if (cheatMode)
         {
-            case BalanceType.Type_0:
-                Gold = 1000;
-                Energy = 500;
-                Component = 200;
-                break;
-            case BalanceType.Type_1:
-                Gold = 1000;
-                Energy = 700;
-                Component = 250;
-                break;
-            case BalanceType.Type_2:
-                Gold = 2500;
-                Energy = 1200;
-                Component = 400;
-                break;
-            case BalanceType.Type_3:
-                Gold = 5000;
-                Energy = 2000;
-                Component = 1000;
-                break;
-        }
-        if(cheatMode)
-        {
-            foreach(Transform t in cheatObjects)
+            foreach (Transform t in cheatObjects)
             {
 
                 t.gameObject.SetActive(true);
@@ -79,12 +79,15 @@ public class Balance : MonoBehaviour
     /// <returns></returns>
     public bool isByu(ByuDealer item)
     {
+        if (!item || !item.Prefab) return false;
         if (((Gold - item.Prefab.CostData.Gold) >= 0) && ((Energy - item.Prefab.CostData.Energy) >= 0) && ((Component - item.Prefab.CostData.Component) >= 0))
         {
             return true;
         }
         else
         {
+            if (!block1)
+                StartCoroutine(WaitAnimation(item));
             return false;
         }
     }
@@ -212,6 +215,15 @@ public class Balance : MonoBehaviour
         Component += item.Prefab.CostData.Component;
         UpdateBalance();
     }
+
+    public void SellItem(CostData cost)
+    {
+        Gold += cost.Gold;
+        Energy += cost.Energy;
+        Component += cost.Component;
+        UpdateBalance();
+    }
+
     public void SellItem(EntityUnit item, bool destroy)
     {
         if (item)

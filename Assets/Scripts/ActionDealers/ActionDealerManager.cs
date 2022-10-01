@@ -60,7 +60,31 @@ public class ActionDealerManager : MonoBehaviour
 
     }
 
-    public void Sell()
+    public void SellTurret()
+    {
+        if (selected != null)
+        {
+
+            if (selected.Entity_ as Wall)
+            {
+                Wall wall = (Wall)selected.Entity_;
+                if (wall)
+                {
+                    if (wall.Turret)
+                    {
+                        LevelManager.Instance.ByuManager.GetBalance().SellItem(wall.Turret.CostData);
+
+                        Destroy(wall.Turret.gameObject);
+                    }
+                }
+            }
+        }
+
+
+        SetAction(false);
+        selected = null;
+    }
+    public void SellWall()
     {
         if (selected != null)
             LevelManager.Instance.ByuManager.GetBalance().SellItem((EntityUnit)selected.Entity_, true);
@@ -74,14 +98,14 @@ public class ActionDealerManager : MonoBehaviour
 
     }
 
-
+    [SerializeField] private float scaleMultipler;
 
     private void Update()
     {
         if (isOpen)
         {
             float angle = (tempAngle / (dealers.Length));
-            float scale = 1f + (Camera.main.orthographicSize / 3);
+            float scale = (1f + (Camera.main.orthographicSize / 3)) * scaleMultipler;
             transform.localScale = new Vector3(scale, scale, scale);
             actionsParent.localScale = new Vector3(scale / 1.5f, scale / 1.5f, scale / 1.5f);
             //distance = 2f - scale;

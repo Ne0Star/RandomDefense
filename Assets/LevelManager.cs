@@ -301,10 +301,13 @@ public class LevelManager : OneSingleton<LevelManager>
 
     public void StopSpeed()
     {
+        uiManager.FastOpenPage(pauseMarker);
+        isStop = true;
         //gameSpeed = 0f;
-        if(enemuManager)
-        enemuManager.SwitchSpeedMultipler(0.001f);
+        if (enemuManager)
+            enemuManager.SwitchSpeedMultipler(0.001f);
         Time.timeScale = 0f;
+
         //onGameSpeed?.Invoke(gameSpeed);
         //if (t_gameSpeed)
         //    t_gameSpeed.text = "0";
@@ -312,11 +315,14 @@ public class LevelManager : OneSingleton<LevelManager>
 
     public void ResumeSpeed()
     {
+        uiManager.ClosePage(pauseMarker);
+        isStop = false;
         Time.timeScale = 1f;
         if (enemuManager)
             enemuManager.RemoveSpeedMultipler();
     }
 
+    [SerializeField] private UIPage pauseMarker;
 
     public void ChangeSpeed()
     {
@@ -332,7 +338,7 @@ public class LevelManager : OneSingleton<LevelManager>
     }
     private void OnDrawGizmos()
     {
-        if(LevelManager.Instance != this)
+        if (LevelManager.Instance != this)
         {
             LevelManager.Instance = this;
         }
@@ -379,19 +385,33 @@ public class LevelManager : OneSingleton<LevelManager>
         }
         return result;
     }
-
+    private bool isStop = false;
+    public void ChangePause()
+    {
+        if (isStop)
+        {
+            ResumeSpeed();
+        }
+        else
+        {
+            StopSpeed();
+        }
+    }
 
     public void StartLesson()
     {
-        
+        ResumeSpeed();
+        lesson.gameObject.SetActive(true);
         uiManager.OpenPage(lesson, () =>
         {
-            StopSpeed();
+            enemuManager.SwitchSpeedMultipler(0.0001f);
+            Debug.Log("1");
             lesson.StartLesson(() =>
             {
-                ChangeSpeed();
+
+                ResumeSpeed();
             });
-            
+
         });
     }
 
@@ -412,13 +432,13 @@ public class LevelManager : OneSingleton<LevelManager>
     public EnemuManager EnemuManager { get => enemuManager; set => enemuManager = value; }
     public LevelPresset LevelPresset { get => levelPresset; }
     public LevelResult LevelResult { get => levelResult; set => levelResult = value; }
+    public bool IsStop { get => isStop; set => isStop = value; }
+
     [SerializeField] private Light2D globalLight;
     [SerializeField] private LessonTimeLine lesson;
     private void Awake()
     {
-        lesson = FindObjectOfType<LessonTimeLine>(true);
-        lesson.gameObject.SetActive(true);
-        lesson.StartLesson();
+        LevelManager.Instance = this;
         yg = GameObject.FindObjectOfType<YandexGame>();
         //yg._FullscreenShow();
         YandexGame.CloseVideoEvent += CheckReward;
@@ -458,23 +478,26 @@ public class LevelManager : OneSingleton<LevelManager>
         QualitySettings.vSyncCount = 1;
         edificeManager = FindObjectOfType<EdificeManager>();
         byuManager = FindObjectOfType<ByuManager>();
-        uiManager = FindObjectOfType<UIManager>();
+        if (!uiManager)
+            uiManager = FindObjectOfType<UIManager>();
         waveManager = FindObjectOfType<WaveManager>();
         mapManager = FindObjectOfType<MapManager>();
-        if(!enemuManager)
-        enemuManager = FindObjectOfType<EnemuManager>();
+        if (!enemuManager)
+            enemuManager = FindObjectOfType<EnemuManager>();
         if (!levelResult)
             levelResult = FindObjectOfType<LevelResult>();
         ChangeSpeed();
 
-        LevelManager.Instance = this;
+        //LevelManager.Instance = this;
     }
     private IEnumerator Start()
     {
         StartCoroutine(WaitFull());
         currentLife = initialLife;
         t_currentLife.text = currentLife.ToString();
-
+        if (!lesson)
+            lesson = FindObjectOfType<LessonTimeLine>(true);
+        StartLesson();
         yield return new WaitForSeconds(1);
         //WaveManager.StartInifinityWaves();
     }
@@ -498,7 +521,7 @@ public class LevelManager : OneSingleton<LevelManager>
     }
     private void CloseFull()
     {
-        ChangeSpeed();
+        ResumeSpeed();
     }
     private void OpenReward(int id)
     {
@@ -506,7 +529,7 @@ public class LevelManager : OneSingleton<LevelManager>
     }
     private void CheckReward(int id)
     {
-        ChangeSpeed();
+        ResumeSpeed();
         switch (id)
         {
             case 0:
@@ -788,6 +811,7 @@ public static class GameUtils
     /// <param name="offset"></param>
     public static Quaternion LookAt2DValue(Transform whom, Transform where, float offset)
     {
+        if (!whom || !where) return Quaternion.identity;
         float angle = Mathf.Atan2(where.transform.position.y - whom.transform.position.y, where.transform.position.x - whom.transform.position.x) * Mathf.Rad2Deg - offset;
         Quaternion total = Quaternion.Euler(whom.transform.rotation.eulerAngles.x, whom.transform.rotation.eulerAngles.y, angle);
         return total;

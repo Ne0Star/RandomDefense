@@ -1,19 +1,44 @@
-﻿using System.Collections;
+﻿using DG.Tweening;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public abstract class TapeItem : MonoBehaviour
 {
+    [SerializeField] private bool useInTape = true;
     [SerializeField] private bool useRare = false;
     [SerializeField] protected Image contentImgBG, contentImg, colorBg;
     [SerializeField] protected ByuDealer currentItem;
 
     public ByuDealer CurrentItem { get => currentItem; }
+    public bool UseInTape { get => useInTape; set => useInTape = value; }
 
     public virtual void SetCurrentItem(ByuDealer item)
     {
         this.currentItem = item;
+    }
+    private bool block = false;
+    public void MarkError()
+    {
+        if (block) return;
+        block = true;
+        StartCoroutine(Mark());
+    }
+
+    private IEnumerator Mark()
+    {
+        bool one = false, two = false;
+        Color ci = contentImg.color;
+        Color cib = contentImgBG.color;
+        contentImg.DOColor(Color.red, 0.4f).SetEase(Ease.InBack).OnComplete(() => one = true);
+        contentImgBG.DOColor(Color.red, 0.4f).SetEase(Ease.InBack).OnComplete(() => two = true);
+        yield return new WaitUntil(() => (one && two));
+        one = false; two = false;
+        contentImg.DOColor(ci, 0.4f).SetEase(Ease.InBack).OnComplete(() => one = true);
+        contentImgBG.DOColor(cib, 0.4f).SetEase(Ease.InBack).OnComplete(() => two = true);
+        yield return new WaitUntil(() => (one && two));
+        block = false;
     }
     public ByuDealer GetCurrentItem() => currentItem;
 

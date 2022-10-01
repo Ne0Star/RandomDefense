@@ -96,6 +96,7 @@ public abstract class Trigger : MonoBehaviour
     /// <returns></returns>
     public virtual EntityUnit GetOneNear(bool inverse)
     {
+        if (!gameObject.activeInHierarchy) return null;
         float max = float.MaxValue;
         int t = 0;
         EntityUnit result = null;
@@ -105,6 +106,7 @@ public abstract class Trigger : MonoBehaviour
         {
             if (GetAllEntities()[i] && GetAllEntities()[i].gameObject.activeInHierarchy)
             {
+
                 float distance = Vector2.Distance(transform.position, GetAllEntities()[i].transform.position);
                 if (distance < triggerRadius && distance < max)
                 {
@@ -178,8 +180,8 @@ public abstract class Trigger : MonoBehaviour
                 //t++;
             }
         }
-        if(variants.Count > 0)
-        result = variants[Random.Range(0, variants.Count - 1)];
+        if (variants.Count > 0)
+            result = variants[Random.Range(0, variants.Count - 1)];
         return result;
     }
 

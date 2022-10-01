@@ -27,14 +27,14 @@ public class RotateTurret : Turret
     }
     public override void HideRadius()
     {
-        if(radius)
-        radius.Close();
+        if (radius)
+            radius.Close();
     }
 
     public override void ShowRadius()
     {
-        if(radius)
-        radius.Open();
+        if (radius)
+            radius.Open();
     }
 
     public override float GetTarretRadius()
@@ -44,15 +44,15 @@ public class RotateTurret : Turret
 
     public override void Tick()
     {
-
-        if (attack) {
+        if (attack)
+        {
             if (rotate && target && target.gameObject.activeInHierarchy)
                 rotateParent.DORotateQuaternion(GameUtils.LookAt2DValue(rotateParent, target.transform, rotateOffset), rotateSpeed / LevelManager.Instance.GameSpeed).OnKill(() =>
                 {
 
                 });
-return;
-        } 
+            return;
+        }
 
         /// Нету цели
         if (mainTrigger && (!target || !target.gameObject.activeInHierarchy))
@@ -80,7 +80,7 @@ return;
                         Check();
                     });
                 else
-                Check();
+                    Check();
             }
         }
     }

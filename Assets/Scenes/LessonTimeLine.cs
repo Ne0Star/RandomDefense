@@ -6,29 +6,28 @@ public class LessonTimeLine : UIPage
     [SerializeField] private Transform[] lessons;
     [SerializeField] private int current = 0;
     [SerializeField] private bool next = false;
-    public void StartLesson()
-    {
-        
-        current = 0;
-        StartCoroutine(Wait(() => { }));
-    }
+    //public void StartLesson()
+    //{
+
+    //    current = 0;
+    //    StartCoroutine(Wait(() => { }));
+    //}
     public void StartLesson(System.Action onComplete)
     {
         current = 0;
         StartCoroutine(Wait(onComplete));
     }
-    private void Start()
+
+    private void OnEnable()
     {
-        foreach(Transform target in transform)
+        foreach (Transform target in transform)
         {
             target.gameObject.SetActive(false);
         }
-        StartLesson();
     }
-
     private IEnumerator Wait(System.Action complete)
     {
-        LevelManager.Instance.StopSpeed();
+        //LevelManager.Instance.StopSpeed();
         lessons[current].gameObject.SetActive(true);
         yield return new WaitUntil(() => next);
         next = false;
@@ -41,12 +40,11 @@ public class LessonTimeLine : UIPage
             yield break;
         }
         complete();
-        LevelManager.Instance.ResumeSpeed();
-        LevelManager.Instance.UiManager.ClosePage(this);
+        gameObject.SetActive(false);
     }
     private void Update()
     {
-        if(Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0))
         {
             next = true;
         }

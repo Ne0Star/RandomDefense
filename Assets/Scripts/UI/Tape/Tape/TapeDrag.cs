@@ -22,7 +22,7 @@ public abstract class Tape : MonoBehaviour
         if (!rect) rect = GetComponent<RectTransform>();
         refreshCost.UpdateData();
     }
-    public void BuyRefresh()
+    public void BuyRefresh(TapeItem item)
     {
         bool buy = LevelManager.Instance.ByuManager.GetBalance().BuyItem(refreshCost.Gold, refreshCost.Energy, refreshCost.Component);
         if (buy)
@@ -31,6 +31,10 @@ public abstract class Tape : MonoBehaviour
             refreshCost.Gold += Random.Range(0f, 0.5f);
             refreshCost.Energy += Random.Range(0f, 0.3f);
             refreshCost.Component += Random.Range(0f, 0.1f);
+        }
+        else
+        {
+            item.MarkError();
         }
         refreshCost.UpdateData();
     }
@@ -87,10 +91,17 @@ public class TapeDrag : Tape
         shadow_Img.transform.SetParent(shadow_Bg.transform);
 
         tapeItems = gameObject.GetComponentsInChildren<TapeDragItem>();
+        List<TapeDragItem> tempList = new List<TapeDragItem>();
         foreach (TapeDragItem item in tapeItems)
         {
-            item.onDown?.AddListener(BlockItems);
+            if (item.UseInTape)
+            {
+                tempList.Add(item);
+                item.onDown?.AddListener(BlockItems);
+            }
+
         }
+        tapeItems = tempList.ToArray();
     }
 
     private void Start()
@@ -124,7 +135,7 @@ public class TapeDrag : Tape
         }
         else
         {
-
+            item.MarkError();
         }
     }
     private IEnumerator Move(Transform temp, ByuDealer currentCreator)
@@ -170,8 +181,8 @@ public class TapeDrag : Tape
 
         //c.Spawn(new Vector3(mousePos.x, mousePos.y, 0), () => complete = true, () => cansel = true);
 
-        if(spawning)
-        CompleteSpawn(currentItem);
+        if (spawning)
+            CompleteSpawn(currentItem);
 
         shadow_Bg.gameObject.SetActive(false);
         shadow_Img.gameObject.SetActive(false);

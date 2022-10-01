@@ -29,6 +29,7 @@ public class DiscTurret : ShellTurret
 
     private void Attack()
     {
+        if (!mainTrigger || !mainTrigger.gameObject) return;
         if (target != null && target.gameObject.activeInHierarchy)
         {
             if (mainTrigger && !mainTrigger.CheckRadius(target))
@@ -38,9 +39,12 @@ public class DiscTurret : ShellTurret
         }
         if (target == null || !target.gameObject.activeInHierarchy)
         {
+            if(mainTrigger && mainTrigger.gameObject)
+            {
             target = mainTrigger.GetOneNear(false);
             if (!target || !target.gameObject.activeInHierarchy)
                 target = mainTrigger.GetOneNear(true);
+            }
         }
         if (target == null || !target.gameObject.activeInHierarchy) return;
         Patron result = GetFreePatron();
