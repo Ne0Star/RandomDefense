@@ -269,11 +269,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   costData:
-    raresType: 0
+    raresType: 2
     gold: 120
-    energy: 30
-    component: 15
-    chance: 76
+    energy: 35
+    component: 100
+    chance: 54
   effects:
     effect: 0
     power: 0
@@ -310,12 +310,12 @@ PrefabInstance:
     - target: {fileID: 5876666222023014371, guid: c22ceccf5cc5f8a44ab8dfe70325ed64,
         type: 3}
       propertyPath: m_Color.g
-      value: 1
+      value: 0.0627451
       objectReference: {fileID: 0}
     - target: {fileID: 5876666222023014371, guid: c22ceccf5cc5f8a44ab8dfe70325ed64,
         type: 3}
       propertyPath: m_Color.r
-      value: 0.18784547
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6440879260362233359, guid: c22ceccf5cc5f8a44ab8dfe70325ed64,
         type: 3}
