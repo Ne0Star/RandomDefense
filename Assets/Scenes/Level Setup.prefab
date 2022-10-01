@@ -7894,7 +7894,7 @@ PrefabInstance:
     - target: {fileID: 9021322588251433838, guid: b51128589664ead48a13f2020348c2fb,
         type: 3}
       propertyPath: onClosepage.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9021322588251433838, guid: b51128589664ead48a13f2020348c2fb,
         type: 3}
