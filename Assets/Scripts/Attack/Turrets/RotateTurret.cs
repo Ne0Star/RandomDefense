@@ -19,7 +19,8 @@ public class RotateTurret : Turret
     }
     private void OnDrawGizmos()
     {
-        if (radius)
+        if (LevelManager.Instance)
+            if (radius)
         {
             radius.SetRadiusColor(costData.RaresType);
             radius.transform.localScale = new Vector3(mainTrigger.TriggerRadius, mainTrigger.TriggerRadius, 0);

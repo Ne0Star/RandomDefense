@@ -15,7 +15,14 @@ public class DiscTurret : ShellTurret
 
 
 
-
+    public override void ShowRadius()
+    {
+        radius.Open();
+    }
+    public override void HideRadius()
+    {
+        radius.Close();
+    }
 
     public override void Tick()
     {

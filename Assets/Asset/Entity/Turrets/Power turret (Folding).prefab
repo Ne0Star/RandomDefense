@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 6
   m_Sprite: {fileID: 21300000, guid: 2ed05964e88e2564a8937f42c12fb700, type: 3}
-  m_Color: {r: 1, g: 0.064486444, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -365,7 +365,7 @@ PrefabInstance:
     - target: {fileID: 5876666222023014371, guid: c22ceccf5cc5f8a44ab8dfe70325ed64,
         type: 3}
       propertyPath: m_Color.a
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5876666222023014371, guid: c22ceccf5cc5f8a44ab8dfe70325ed64,
         type: 3}
@@ -375,12 +375,12 @@ PrefabInstance:
     - target: {fileID: 5876666222023014371, guid: c22ceccf5cc5f8a44ab8dfe70325ed64,
         type: 3}
       propertyPath: m_Color.g
-      value: 0
+      value: 0.064486444
       objectReference: {fileID: 0}
     - target: {fileID: 5876666222023014371, guid: c22ceccf5cc5f8a44ab8dfe70325ed64,
         type: 3}
       propertyPath: m_Color.r
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6440879260362233359, guid: c22ceccf5cc5f8a44ab8dfe70325ed64,
         type: 3}
@@ -391,7 +391,7 @@ PrefabInstance:
         type: 3}
       propertyPath: radiusRender
       value: 
-      objectReference: {fileID: 380594585}
+      objectReference: {fileID: 7717045154568701204}
     - target: {fileID: 7007541727684015774, guid: c22ceccf5cc5f8a44ab8dfe70325ed64,
         type: 3}
       propertyPath: m_RootOrder
@@ -452,8 +452,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: RadiusPreivew
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 5876666222023014371, guid: c22ceccf5cc5f8a44ab8dfe70325ed64, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c22ceccf5cc5f8a44ab8dfe70325ed64, type: 3}
 --- !u!4 &6604992261481907305 stripped
 Transform:
@@ -473,3 +472,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8322e36a55db0184d88a1fd59ff79583, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!212 &7717045154568701204 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 5876666222023014371, guid: c22ceccf5cc5f8a44ab8dfe70325ed64,
+    type: 3}
+  m_PrefabInstance: {fileID: 4221684182209819383}
+  m_PrefabAsset: {fileID: 0}

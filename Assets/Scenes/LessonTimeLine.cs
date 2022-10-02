@@ -14,6 +14,11 @@ public class LessonTimeLine : UIPage
     //}
     public void StartLesson(System.Action onComplete)
     {
+        if (!gameObject.activeInHierarchy)
+        {
+            onComplete();
+            return;
+        }
         current = 0;
         StartCoroutine(Wait(onComplete));
     }

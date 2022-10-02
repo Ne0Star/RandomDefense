@@ -34,9 +34,10 @@ public class MultiTurrets : Turret
     }
 
     private void OnDrawGizmos()
-    {
+    {if(LevelManager.Instance)
         foreach (Turret t in turrets)
         {
+            
             t.Radius.SetRadiusColor(t.CostData.RaresType);
         }
     }

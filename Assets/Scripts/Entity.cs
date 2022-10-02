@@ -471,7 +471,8 @@ public abstract class Turret : EntityStatic
     [SerializeField] protected List<EntityUnit> targets;
     private void OnDrawGizmos()
     {
-        radius.SetRadiusColor(costData.RaresType);
+        if (LevelManager.Instance)
+            radius.SetRadiusColor(costData.RaresType);
 
     }
 

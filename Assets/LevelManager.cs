@@ -326,6 +326,7 @@ public class LevelManager : OneSingleton<LevelManager>
 
     public void ChangeSpeed()
     {
+        if (isStop) return;
         Time.timeScale = 1f;
         speedIndex = Mathf.Clamp(speedIndex + 1, 0, gameSpeeds.Length);
         if (speedIndex == gameSpeeds.Length)
@@ -499,6 +500,11 @@ public class LevelManager : OneSingleton<LevelManager>
             lesson = FindObjectOfType<LessonTimeLine>(true);
         StartLesson();
         yield return new WaitForSeconds(1);
+#if UNITY_EDITOR
+
+        Application.targetFrameRate = 60;
+
+#endif
         //WaveManager.StartInifinityWaves();
     }
 

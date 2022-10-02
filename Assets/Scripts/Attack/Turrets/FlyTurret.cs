@@ -26,7 +26,15 @@ public class FlyTurret : Turret
         StartCoroutine(AgentFix());
     }
 
-     private IEnumerator AgentFix()
+    public override void ShowRadius()
+    {
+        radius.Open();
+    }
+    public override void HideRadius()
+    {
+        radius.Close();
+    }
+    private IEnumerator AgentFix()
     {
         yield return new WaitForSeconds(0.05f);
         agent.enabled = true;
@@ -70,23 +78,5 @@ public class FlyTurret : Turret
                 attack = false;
             });
         });
-
-        //radiusVFX.DOScale(mainTrigger.TriggerRadius, in_duration.GetCurrentValue()).SetEase(in_).OnKill(() =>
-        //{
-        //    radiusVFX.DOScale(0, out_duration.GetCurrentValue()).SetEase(out_).OnKill(() =>
-        //    {
-        //        attack = false;
-        //    });
-        //});
-
     }
-
-    ////private IEnumerator SetDefault(float speed, Enemu target)
-    ////{
-    ////    //Debug.Log(Mathf.Clamp(power / (power * 20), 0.01f, 10f));
-    ////    yield return new WaitForSeconds(Mathf.Clamp(power / (power * 20), 0.01f, 10f));
-    ////    if (target)
-    ////        target.Agent.speed = speed;
-    ////}
-
 }

@@ -97,6 +97,14 @@ public class RocketTurret : ShellTurret
     {
         attackDamage += Random.Range(minDamage, maxDamage);
     }
+    public override void ShowRadius()
+    {
+        radius.Open();
+    }
+    public override void HideRadius()
+    {
+        radius.Close();
+    }
     private IEnumerator Attack_Animation()
     {
 
