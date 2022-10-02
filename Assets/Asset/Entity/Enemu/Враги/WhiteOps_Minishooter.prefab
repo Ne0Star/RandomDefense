@@ -149,6 +149,7 @@ MonoBehaviour:
   hideHit: 0
   hit: {fileID: 5444832244207234098}
   renderers: []
+  blockHit: 0
   turrets:
   - {fileID: 8449805706018797993}
   mainTrigger: {fileID: 1245799810526788135}
@@ -474,22 +475,22 @@ PrefabInstance:
     - target: {fileID: 6426339549996842839, guid: 87bb73cbe4eb09049b41656e9fc914dc,
         type: 3}
       propertyPath: health
-      value: 45
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 6426339549996842839, guid: 87bb73cbe4eb09049b41656e9fc914dc,
         type: 3}
       propertyPath: strength
-      value: 45
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 6426339549996842839, guid: 87bb73cbe4eb09049b41656e9fc914dc,
         type: 3}
       propertyPath: maxHealth
-      value: 45
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 6426339549996842839, guid: 87bb73cbe4eb09049b41656e9fc914dc,
         type: 3}
       propertyPath: maxStrength
-      value: 45
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 6426339549996842839, guid: 87bb73cbe4eb09049b41656e9fc914dc,
         type: 3}

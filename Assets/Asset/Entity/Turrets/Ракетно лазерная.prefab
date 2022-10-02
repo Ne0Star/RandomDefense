@@ -312,10 +312,10 @@ MonoBehaviour:
     endPosition: {x: 0, y: 0, z: 0}
     pursue: 1
     rotateToTarget: 1
-  attackDamage: 20
-  attackCount: 1
-  attackSpeed: 0.25
-  reloadSpeed: 1
+  attackDamage: 14
+  attackCount: 3
+  attackSpeed: 0.6
+  reloadSpeed: 3
 --- !u!1 &3802740604874037406
 GameObject:
   m_ObjectHideFlags: 0
@@ -848,7 +848,7 @@ MonoBehaviour:
     gold: 250
     energy: 200
     component: 80
-    chance: 55
+    chance: 52
   effects:
     effect: 0
     power: 0

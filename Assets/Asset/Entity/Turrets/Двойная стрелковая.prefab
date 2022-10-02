@@ -246,7 +246,7 @@ MonoBehaviour:
   attackDamage: 2.2
   attackCount: 3
   attackSpeed: 0.04
-  reloadSpeed: 0.2
+  reloadSpeed: 0.45
 --- !u!1 &200441023135377504
 GameObject:
   m_ObjectHideFlags: 0
@@ -494,7 +494,7 @@ MonoBehaviour:
   attackDamage: 2.2
   attackCount: 3
   attackSpeed: 0.04
-  reloadSpeed: 0.2
+  reloadSpeed: 0.45
 --- !u!1 &1261524680200488180
 GameObject:
   m_ObjectHideFlags: 0
@@ -819,7 +819,7 @@ MonoBehaviour:
     gold: 140
     energy: 25
     component: 10
-    chance: 70
+    chance: 68
   effects:
     effect: 0
     power: 0

@@ -103,10 +103,10 @@ MonoBehaviour:
       m_Calls: []
   costData:
     raresType: 3
-    gold: 185
-    energy: 200
-    component: 150
-    chance: 47
+    gold: 380
+    energy: 275
+    component: 120
+    chance: 40
   effects:
     effect: 0
     power: 0
@@ -124,7 +124,7 @@ MonoBehaviour:
   rotated: 0
   attackSpeed: 0.017
   damage:
-    maxValue: 10
+    maxValue: 2.6
     recoveryRate: 5
     multipler: 1
     minMultipler: 0.1

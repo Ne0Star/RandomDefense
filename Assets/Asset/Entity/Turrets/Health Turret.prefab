@@ -405,7 +405,7 @@ MonoBehaviour:
     raresType: 3
     gold: 340
     energy: 170
-    component: 80
+    component: 120
     chance: 43
   effects:
     effect: 0

@@ -228,9 +228,9 @@ MonoBehaviour:
   costData:
     raresType: 0
     gold: 85
-    energy: 15
+    energy: 25
     component: 10
-    chance: 73
+    chance: 77
   effects:
     effect: 0
     power: 0
@@ -251,10 +251,10 @@ MonoBehaviour:
   - {fileID: 156475103205053933}
   - {fileID: 156475102576644894}
   - {fileID: 156475101907750416}
-  attackDamage: 3
+  attackDamage: 1
   attackCount: 8
-  attackSpeed: 0.03
-  reloadSpeed: 0.17
+  attackSpeed: 0.07
+  reloadSpeed: 0.6
 --- !u!1 &156475102576644895
 GameObject:
   m_ObjectHideFlags: 0

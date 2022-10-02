@@ -151,7 +151,7 @@ MonoBehaviour:
     gold: 150
     energy: 40
     component: 30
-    chance: 75
+    chance: 71
   effects:
     effect: 0
     power: 0
@@ -288,7 +288,7 @@ MonoBehaviour:
   attackDamage: 10
   attackCount: 1
   attackSpeed: 1
-  reloadSpeed: 1.2
+  reloadSpeed: 1.1
 --- !u!212 &7135602362494807196
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -312,7 +312,7 @@ MonoBehaviour:
     multipler: 1
     minMultipler: 0.1
     maxMultipler: 1
-  attackDamage: 20
+  attackDamage: 7
   trigger: {fileID: 8597917162979997571}
   batchCount: 5
   miniRocketCount: 4

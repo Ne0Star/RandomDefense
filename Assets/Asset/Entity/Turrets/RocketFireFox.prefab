@@ -230,11 +230,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   costData:
-    raresType: 4
-    gold: 500
-    energy: 300
-    component: 200
-    chance: 18
+    raresType: 3
+    gold: 220
+    energy: 85
+    component: 155
+    chance: 46
   effects:
     effect: 0
     power: 0
@@ -372,10 +372,10 @@ MonoBehaviour:
     endPosition: {x: 0, y: 0, z: 0}
     pursue: 1
     rotateToTarget: 1
-  attackDamage: 30
-  attackCount: 2
-  attackSpeed: 1
-  reloadSpeed: 0.1
+  attackDamage: 5
+  attackCount: 1
+  attackSpeed: 0.6
+  reloadSpeed: 0.85
 --- !u!1001 &8976462094891644326
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -391,12 +391,12 @@ PrefabInstance:
     - target: {fileID: 5876666222023014371, guid: c22ceccf5cc5f8a44ab8dfe70325ed64,
         type: 3}
       propertyPath: m_Color.b
-      value: 0
+      value: 0.85490197
       objectReference: {fileID: 0}
     - target: {fileID: 5876666222023014371, guid: c22ceccf5cc5f8a44ab8dfe70325ed64,
         type: 3}
       propertyPath: m_Color.g
-      value: 0.96657693
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5876666222023014371, guid: c22ceccf5cc5f8a44ab8dfe70325ed64,
         type: 3}

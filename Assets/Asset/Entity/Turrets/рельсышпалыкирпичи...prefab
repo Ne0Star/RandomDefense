@@ -270,8 +270,8 @@ MonoBehaviour:
       m_Calls: []
   costData:
     raresType: 2
-    gold: 120
-    energy: 35
+    gold: 140
+    energy: 70
     component: 100
     chance: 54
   effects:
@@ -291,10 +291,10 @@ MonoBehaviour:
   rotated: 0
   shotSFX:
   - {fileID: 5881814989067061219}
-  attackDamage: 40
+  attackDamage: 60
   attackCount: 1
   attackSpeed: 0.3
-  reloadSpeed: 2
+  reloadSpeed: 3
 --- !u!1001 &8107462578775632487
 PrefabInstance:
   m_ObjectHideFlags: 0

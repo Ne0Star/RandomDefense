@@ -163,7 +163,7 @@ MonoBehaviour:
   attackDamage: 3
   attackCount: 3
   attackSpeed: 0.03
-  reloadSpeed: 0.12
+  reloadSpeed: 0.55
 --- !u!1 &4273095420314571889
 GameObject:
   m_ObjectHideFlags: 0
