@@ -251,7 +251,7 @@ MonoBehaviour:
   - {fileID: 156475103205053933}
   - {fileID: 156475102576644894}
   - {fileID: 156475101907750416}
-  attackDamage: 1
+  attackDamage: 3
   attackCount: 8
   attackSpeed: 0.07
   reloadSpeed: 0.6
