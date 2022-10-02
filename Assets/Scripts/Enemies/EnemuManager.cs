@@ -182,6 +182,8 @@ public class EnemuManager : MonoBehaviour
                 {
                     MoveEnemuData md = moveDatas[i];
 
+
+
                     int max = dynamicDatas[i].enemu.CurrentSpawner.GetPath().Length;
                     //dynamicDatas[i].enemu.SetDistionation
                     md.RotateSpeed = dynamicDatas[i].enemu.RotateSpeed / LevelManager.Instance.GameSpeed;

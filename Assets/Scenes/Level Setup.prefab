@@ -1689,7 +1689,7 @@ MonoBehaviour:
   pose: 145.15
   groupCount: 5
   distanceCheckFrames: 30
-  enemuToFramePersent: 25
+  enemuToFramePersent: 100
   enemuToFrame: 0
   enemuLast: 0
   enemuCurrent: 0
