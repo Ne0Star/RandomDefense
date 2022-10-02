@@ -81,6 +81,7 @@ public class DroneTurret : Turret
         blocker = true;
         targets = mainTrigger.GetAllRadius();
         target = mainTrigger.GetOneRandom();
+        if(target && target.gameObject.activeInHierarchy)
         foreach (EntityUnit target in targets)
         {
             if (target)
