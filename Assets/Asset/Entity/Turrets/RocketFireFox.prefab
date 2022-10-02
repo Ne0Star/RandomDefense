@@ -252,7 +252,7 @@ MonoBehaviour:
   rotated: 0
   patronPrefab: {fileID: 5615693624658511643, guid: 7efa6a76e50277045a75313515f3c726,
     type: 3}
-  batchCount: 10
+  batchCount: 2
   splashRadius:
     maxValue: 0.5
     recoveryRate: 0.1
@@ -372,9 +372,9 @@ MonoBehaviour:
     endPosition: {x: 0, y: 0, z: 0}
     pursue: 1
     rotateToTarget: 1
-  attackDamage: 5
+  attackDamage: 30
   attackCount: 1
-  attackSpeed: 0.6
+  attackSpeed: 0.45
   reloadSpeed: 0.85
 --- !u!1001 &8976462094891644326
 PrefabInstance:

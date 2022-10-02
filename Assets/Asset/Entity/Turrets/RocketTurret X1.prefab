@@ -285,10 +285,10 @@ MonoBehaviour:
     endPosition: {x: 0, y: 0, z: 0}
     pursue: 1
     rotateToTarget: 1
-  attackDamage: 10
+  attackDamage: 22
   attackCount: 1
-  attackSpeed: 1
-  reloadSpeed: 1.1
+  attackSpeed: 0.75
+  reloadSpeed: 0.9
 --- !u!212 &7135602362494807196
 SpriteRenderer:
   m_ObjectHideFlags: 0

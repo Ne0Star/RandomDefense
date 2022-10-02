@@ -287,10 +287,10 @@ MonoBehaviour:
     endPosition: {x: 0, y: 0, z: 0}
     pursue: 1
     rotateToTarget: 1
-  attackDamage: 17
-  attackCount: 1
+  attackDamage: 38
+  attackCount: 2
   attackSpeed: 0.25
-  reloadSpeed: 5
+  reloadSpeed: 1.5
 --- !u!212 &2900067133452802854
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -387,7 +387,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb0e7d6459ec4ce4e8742514e2faf305, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  triggerRadius: 2.8
+  triggerRadius: 3.2
   type: 1
 --- !u!1001 &384993438
 PrefabInstance:
@@ -659,12 +659,12 @@ PrefabInstance:
     - target: {fileID: 7007541727684015774, guid: c22ceccf5cc5f8a44ab8dfe70325ed64,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 2.8
+      value: 3.2
       objectReference: {fileID: 0}
     - target: {fileID: 7007541727684015774, guid: c22ceccf5cc5f8a44ab8dfe70325ed64,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 2.8
+      value: 3.2
       objectReference: {fileID: 0}
     - target: {fileID: 7007541727684015774, guid: c22ceccf5cc5f8a44ab8dfe70325ed64,
         type: 3}
