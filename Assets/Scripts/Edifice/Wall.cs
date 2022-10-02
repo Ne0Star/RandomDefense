@@ -11,6 +11,11 @@ public class Wall : Edifice
     [SerializeField] private Vector3 spawnWorldPosition;
     public Turret Turret { get => turret; }
 
+    protected override void AwakeUnit()
+    {
+        Hit.gameObject.SetActive(false);
+    }
+
     public override Entity Spawn(Vector3 spawnPosition, Quaternion spawnRotation, Spawner spawner, Transform spawnParent, Action cansel)
     {
         navMeshObstacle = gameObject.GetComponentInChildren<NavMeshObstacle>();

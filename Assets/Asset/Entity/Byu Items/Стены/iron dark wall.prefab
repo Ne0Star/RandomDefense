@@ -58,9 +58,10 @@ MonoBehaviour:
     energy: 0
     component: 10
     chance: 50
-  hideHit: 1
+  hideHit: 0
   hit: {fileID: 7101790671565814798}
   renderers: []
+  blockHit: 0
   navMeshObstacle: {fileID: 8843568852706748766}
   tile: {fileID: 11400000, guid: 7be4039f4048d1d419f29c2020b67656, type: 2}
   turret: {fileID: 0}

@@ -155,7 +155,7 @@ public abstract class EntityUnit : Entity
                 StartCoroutine(WaitHitBar());
         }
     }
-
+    [SerializeField]
     protected bool blockHit = false;
     private IEnumerator WaitHitBar()
     {
@@ -470,9 +470,8 @@ public abstract class Turret : EntityStatic
     [SerializeField] protected EntityUnit target;
     [SerializeField] protected List<EntityUnit> targets;
     private void OnDrawGizmos()
-    {
-        if (LevelManager.Instance)
-            radius.SetRadiusColor(costData.RaresType);
+    {if(LevelManager.Instance)
+        radius.SetRadiusColor(costData.RaresType);
 
     }
 

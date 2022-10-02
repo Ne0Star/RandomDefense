@@ -10,6 +10,12 @@ public class Generator : Edifice
     [SerializeField] private float spawnZ;
     [SerializeField] private TileBase tile;
     [SerializeField] private Vector3 spawnWorldPosition;
+
+    protected override void AwakeUnit()
+    {
+        Hit.gameObject.SetActive(false);
+    }
+
     public override Entity Spawn(Vector3 spawnPosition, Quaternion spawnRotation, Spawner spawner, Transform spawnParent, Action cansel)
     {
         MapManager map = LevelManager.Instance.MapManager;

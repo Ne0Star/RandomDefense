@@ -106,9 +106,10 @@ MonoBehaviour:
     energy: 0
     component: 50
     chance: 60
-  hideHit: 1
+  hideHit: 0
   hit: {fileID: 6453110490946174879}
   renderers: []
+  blockHit: 0
   navMeshObstacle: {fileID: 7077110835561756882}
   generatedTick: 6
   energy: 10

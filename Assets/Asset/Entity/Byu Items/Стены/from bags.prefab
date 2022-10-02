@@ -58,13 +58,14 @@ MonoBehaviour:
     energy: 0
     component: 10
     chance: 80
-  hideHit: 1
+  hideHit: 0
   hit: {fileID: 7101790671565814798}
   renderers: []
+  blockHit: 0
   navMeshObstacle: {fileID: 8843568852706748766}
   tile: {fileID: 11400000, guid: 4104ad3053f83d4409d0c7ae643f98d3, type: 2}
   turret: {fileID: 0}
-  spawnWorldPosition: {x: 5.3809667, y: -10.217851, z: -9.999999}
+  spawnWorldPosition: {x: 3.4251547, y: -10.257877, z: -9.999999}
 --- !u!1001 &3203832124630257536
 PrefabInstance:
   m_ObjectHideFlags: 0

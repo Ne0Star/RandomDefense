@@ -58,16 +58,17 @@ MonoBehaviour:
     energy: 0
     component: 10
     chance: 80
-  hideHit: 1
+  hideHit: 0
   hit: {fileID: 6928107210876540197}
   renderers: []
+  blockHit: 0
   navMeshObstacle: {fileID: 4542221291927502134}
   generatedTick: 6
   energy: 3
   currentTick: 0
   spawnZ: 0
   tile: {fileID: 11400000, guid: 51b569aa8a3f3eb40a6c3ba37794ca67, type: 2}
-  spawnWorldPosition: {x: 15.87568, y: -11.119327, z: -9.999999}
+  spawnWorldPosition: {x: 1.1454234, y: -10.001909, z: -9.999999}
 --- !u!1 &8643532889681808279
 GameObject:
   m_ObjectHideFlags: 0
