@@ -149,9 +149,9 @@ MonoBehaviour:
   costData:
     raresType: 1
     gold: 150
-    energy: 30
+    energy: 40
     component: 30
-    chance: 68
+    chance: 75
   effects:
     effect: 0
     power: 0

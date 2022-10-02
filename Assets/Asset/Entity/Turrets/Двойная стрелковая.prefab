@@ -816,10 +816,10 @@ MonoBehaviour:
       m_Calls: []
   costData:
     raresType: 1
-    gold: 120
-    energy: 15
+    gold: 140
+    energy: 25
     component: 10
-    chance: 73
+    chance: 70
   effects:
     effect: 0
     power: 0
