@@ -546,26 +546,26 @@ MonoBehaviour:
         - serializedVersion: 3
           time: 0
           value: 0
-          inSlope: 0.1
-          outSlope: 0.1
+          inSlope: 0.3383839
+          outSlope: 0.3383839
           tangentMode: 34
           weightedMode: 0
           inWeight: 0
           outWeight: 0.33333334
         - serializedVersion: 3
           time: 1
-          value: 0.1
-          inSlope: 0.1
-          outSlope: 0.1
-          tangentMode: 34
+          value: 0.3383839
+          inSlope: 0.8633915
+          outSlope: 0.8633915
+          tangentMode: 0
           weightedMode: 0
-          inWeight: 0.33333334
+          inWeight: 0.0712589
           outWeight: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
     currentTime: 0
-    currentSpeed: 0.6
+    currentSpeed: 0.1
     currentOffsetMultipler: 30
     searchRadius: 10
     rotateOffset: -90

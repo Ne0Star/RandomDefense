@@ -220,37 +220,9 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   tickToDamage: 4
   currentTick: 0
-  blocker: 0
+  blocker: 1
   actionValue:
     maxValue: 60
     recoveryRate: 1
@@ -370,32 +342,41 @@ MonoBehaviour:
         - serializedVersion: 3
           time: 0
           value: 0
-          inSlope: 0.1
-          outSlope: 0.1
-          tangentMode: 34
+          inSlope: 0.107853904
+          outSlope: 0.107853904
+          tangentMode: 0
           weightedMode: 0
           inWeight: 0
-          outWeight: 0.33333334
+          outWeight: 0.32779098
         - serializedVersion: 3
-          time: 1
-          value: 0.1
-          inSlope: 0.1
-          outSlope: 0.1
-          tangentMode: 34
+          time: 0.8870542
+          value: 0.1867548
+          inSlope: 0.7174191
+          outSlope: 0.7174191
+          tangentMode: 0
           weightedMode: 0
           inWeight: 0.33333334
+          outWeight: 0.33142903
+        - serializedVersion: 3
+          time: 1
+          value: 0.33838385
+          inSlope: 1.2787988
+          outSlope: 1.2787988
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.040380068
           outWeight: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
     currentTime: 0
-    currentSpeed: 0.6
+    currentSpeed: 0.1
     currentOffsetMultipler: 30
-    searchRadius: 10
+    searchRadius: 0
     rotateOffset: -90
     distanceToCompleted: 0.05
     endPosition: {x: 0, y: 0, z: 0}
-    pursue: 0
+    pursue: 1
     rotateToTarget: 1
   drones:
   - {fileID: 262877232820987590}

@@ -27,6 +27,7 @@ public class DroneTurret : Turret
     private void Start()
     {
         drones = gameObject.GetComponentsInChildren<Drone>();
+        blocker = false;
     }
 
     private void OnEnable()
@@ -62,9 +63,10 @@ public class DroneTurret : Turret
     {
         if (target)
         {
-            if (!target.gameObject.activeInHierarchy)
+            if (!target.gameObject.activeInHierarchy || !mainTrigger.CheckRadius(target))
             {
                 target = null;
+               // blocker = false;
             }
         }
         currentTick++;
@@ -78,38 +80,39 @@ public class DroneTurret : Turret
 
     private IEnumerator Attack()
     {
+
         blocker = true;
         targets = mainTrigger.GetAllRadius();
         target = mainTrigger.GetOneRandom();
-        if(target && target.gameObject.activeInHierarchy)
-        foreach (EntityUnit target in targets)
-        {
-            if (target)
+        if (target && target.gameObject.activeInHierarchy)
+            foreach (EntityUnit target in targets)
             {
-                Drone drone = GetDrone();
-                if (drone)
+                if (target && target.gameObject.activeInHierarchy)
                 {
-                    switch (droneBehaviour)
+                    Drone drone = GetDrone();
+                    if (drone)
                     {
-                        case DroneActionType.Attack:
-                            drone.isComplete = false;
-                            drone.SetViewTarget(target.transform.position);
-                            MoveDrone(false, drone, target.transform, (p, t) => StartCoroutine(OnComplete(p, t)));
-                            break;
-                        case DroneActionType.Health:
-                            //Debug.Log(target);
-                            if (!target.Hit.isFull())
-                            {
+                        switch (droneBehaviour)
+                        {
+                            case DroneActionType.Attack:
                                 drone.isComplete = false;
+                                drone.SetViewTarget(target.transform.position);
                                 MoveDrone(false, drone, target.transform, (p, t) => StartCoroutine(OnComplete(p, t)));
-                            }
-                            break;
-                    }
+                                break;
+                            case DroneActionType.Health:
+                                //Debug.Log(target);
+                                if (!target.Hit.isFull())
+                                {
+                                    drone.isComplete = false;
+                                    MoveDrone(false, drone, target.transform, (p, t) => StartCoroutine(OnComplete(p, t)));
+                                }
+                                break;
+                        }
 
+                    }
                 }
+                yield return new WaitForSeconds(actionDuration.GetCurrentValue() / LevelManager.Instance.GameSpeed);
             }
-            yield return new WaitForSeconds(actionDuration.GetCurrentValue() / LevelManager.Instance.GameSpeed);
-        }
         blocker = false;
     }
 
@@ -132,7 +135,6 @@ public class DroneTurret : Turret
         };
         droneSystem.CreatePatron(dt, drone.transform, target, complete);
     }
-
     private IEnumerator OnComplete(Transform patron, Transform target)
     {
         //yield return new WaitForSeconds(actionDuration.GetCurrentValue() / LevelManager.Instance.GameSpeed);
@@ -146,14 +148,19 @@ public class DroneTurret : Turret
                 yield return new WaitForSeconds(drone.SFXDuration);
                 drone.CloseSFX();
                 drone.RemoveViewTarget();
-                MoveDrone(true, drone, drone.station, (p, v) => drone.MoveToStartPosition());
+                MoveDrone(true, drone, drone.station, (p, v) => CompleteHome(drone));
             }
         }
         else if (patron && !target)
         {
             Drone drone = patron.GetComponent<Drone>();
-            MoveDrone(true, drone, drone.station, (p, v) => drone.MoveToStartPosition());
+            MoveDrone(true, drone, drone.station, (p, v) => CompleteHome(drone));
         }
+    }
+
+    private void CompleteHome(Drone drone)
+    {
+        drone.MoveToStartPosition();
     }
 
     private void OnDrawGizmos()

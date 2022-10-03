@@ -539,18 +539,18 @@ public class LevelManager : OneSingleton<LevelManager>
         switch (id)
         {
             case 0:
-                currentLife += 5;
+                currentLife += Random.Range(5, 10);
                 t_currentLife.text = currentLife + "";
                 break;
 
             case 1:
-                byuManager.GetBalance().Component += 20;
+                byuManager.GetBalance().Component += Random.Range(20,50);
                 break;
             case 2:
-                byuManager.GetBalance().Gold += 100;
+                byuManager.GetBalance().Gold += Random.Range(100,250);
                 break;
             case 3:
-                byuManager.GetBalance().Energy += 50;
+                byuManager.GetBalance().Energy += Random.Range(50, 150);
                 break;
             case 4:
                 //StartCoroutine(WaitBanners());
